@@ -80,6 +80,10 @@ public class GroupKMers {
         }
 
         int n = mers.keySet().size();  // count of base kmers
+        if(scores.isEmpty()) {
+            System.err.println("No qmers left for clustering, you should adjust the filtering.");
+            System.exit(1);
+        }
         int q = scores.get(0).getQmer().length(); // length of any qmer
         int expected_random_list_length = (int) Math.ceil(Math.pow(0.25, basematch) * (1 + 2 * (q - basematch)) * n);
 

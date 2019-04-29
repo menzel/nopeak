@@ -1,26 +1,22 @@
 package main;
 
-import filter.GroupKMers;
+import gui.Gui;
 import logo.Logo;
-import logo.LogoOld;
 import profile.Profile;
-import profile.Tuple;
 import score.Score;
-import score.Scoring;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
+
 
 
         long startTime = System.currentTimeMillis();
@@ -35,6 +31,7 @@ public class Main {
         ////////////////////
         // Creates control csv files
         ////////////////////
+
         if ("PROFILE".equals(args[0])) {
             if (args.length < 4) {
                 System.err.println("Expected params: PROFILE read_file path_to_genome qmer-length threads");
@@ -44,17 +41,18 @@ public class Main {
 
             int threadsc = Integer.parseInt(args[4]);
             threadsc = threadsc > 24 ? 24 : threadsc; //limit max thread count to 24
+            threadsc = 2;
             int radius = 500;
 
 
-            System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Building profiles for " + args[3] + "-mers for a radius of 500 bp around each read");
+            System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Building profiles for " + args[3] + "-mers for a radius of " + radius +  " bp around each read");
 
             ////////////////////
             // Create Profiles for control data
             ////////////////////
 
             Profile control = new Profile(path_sample, args[2], Integer.parseInt(args[3]), radius, threadsc);
-            control.writeProfilesToFile("./profile_" + path_sample.split("/")[path_sample.split("/").length - 1] + ".csv");
+            control.writeProfilesToFile("profile_" + path_sample.split("/")[path_sample.split("/").length - 1] + ".csv");
 
         } else if ("BATCH".equals(args[0])) {
 

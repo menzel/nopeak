@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -85,15 +86,22 @@ public class Scoring {
         List<Number> profile_sample_controlled = new ArrayList<>(Collections.nCopies(profile_sample.size(),0));
 
         for(int i = 0; i < profile_sample.size(); i++)
+            //profile_sample_controlled.set(i, profile_sample.get(i));
             profile_sample_controlled.set(i, ((double) profile_sample.get(i)) / profile_control.get(i));
 
-        List<Double> sma = getSma(profile_sample_controlled, 100);
-
+        List<Double> sma = getSma(profile_sample_controlled, 10);
+        /*
+        List<Double> smacopy = new ArrayList<>(sma);
+        Collections.sort(smacopy);
+        Collections.reverse(smacopy);
+        double max = smacopy.get(3); //Collections.min(smacopy.subList(0,5));
+         */
         double max = Collections.max(sma);
         double half_max = max / 2;
         int pos = profile_control.size()/2 + 1 - fraglen;
 
         double min;
+        //double avg = sma.stream().mapToDouble(a->a).average().getAsDouble();
 
         if(pos - fraglen* 1.5 > 0 && sma.size() > (pos + fraglen*1.5)) {
             min = Collections.min(sma.subList((int) (pos - fraglen * 1.5), (int) (pos + fraglen * 1.5)));
@@ -101,26 +109,28 @@ public class Scoring {
             min = Collections.min(sma);
         }
 
+
         //  check for correct fraglen position
         if(pos < 0 || pos > sma.size()){
             System.err.println("Fraglen position outside of fragment. Is the fragment length of " + fraglen + " correct?");
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
 
-        // if(max - min < 1){ return Tuple.EMPTY_DOUBLE_TUPLE; }
+        //if(max - min < 1){ return Tuple.EMPTY_DOUBLE_TUPLE; }
 
         // max outside of fraglen window
         if(sma.indexOf(max) < pos || sma.indexOf(max) > pos + fraglen*1.3){
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
 
-        //check negative profile
-        if(sma.get(sma.size() / 2 + 1 - fraglen / 2) <= sma.stream().mapToDouble(i -> i).average().getAsDouble()){
+        //check min near max
+        if(Math.abs(sma.indexOf(min) - sma.indexOf(max)) < fraglen){
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
 
+
         double delta  = sma.get(pos) - half_max;
-        return new Tuple<>(Math.abs(delta / (max - half_max)), max);
+        return new Tuple<>(Math.abs(delta / (max - half_max)), max - min);
     }
 
     /**
@@ -159,7 +169,7 @@ public class Scoring {
 
     public List<Score> getScores() {
 
-        scores.sort(Comparator.comparing(Score::getHeight)); // sort by score
+        scores.sort(Comparator.comparing(Score::getScore)); // sort by score
         Collections.reverse(scores);
         return scores;
     }
