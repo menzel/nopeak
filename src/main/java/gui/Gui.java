@@ -1,25 +1,33 @@
 package gui;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import filter.GroupKMers;
 import logo.LogoOld;
 import profile.ProfileLib;
 import score.Score;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Gui extends Frame {
 
+    private String filter = "^";
     private List<Score> scores;
     private int basematch = 3;
     private double score_cutoff = 0.1;
     private JTextPane seq;
     private StyledDocument doc;
+    private boolean colorall = true;
 
     public int getBasematch() {
         return basematch;
@@ -41,6 +49,7 @@ public class Gui extends Frame {
         f.getContentPane().add(BorderLayout.EAST, images);
 
         final JPanel buttons = new JPanel();
+        buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
         f.getContentPane().add(BorderLayout.WEST, buttons);
 
         // sequences
@@ -138,6 +147,43 @@ public class Gui extends Frame {
             });
         });
 
+
+
+        // Input expected
+
+        JTextField input = new JTextField();
+        input.setMaximumSize(new Dimension(100,input.getPreferredSize().height));
+        buttons.add(input);
+
+        input.getDocument().addDocumentListener(new DocumentListener() {
+
+            private void updatecol() {
+                colorall = false;
+                filter = input.getText();
+                if (filter.length() == 0) {
+                    filter = "^";
+                    colorall = true;
+                }
+                update();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updatecol();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updatecol();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updatecol();
+            }
+        });
+
+        buttons.add(new Box.Filler(new Dimension(5,5),new Dimension(10,10),new Dimension(1000,1000)));
+
         // Slider
         f.setVisible(true);
         update();
@@ -155,15 +201,40 @@ public class Gui extends Frame {
 
         seq.setText(alltext.toString());
 
+        char[] tmp = new char[filter.length()];
+
         int pos = 0;
-        for (char letter: alltext.toString().toCharArray()){
+        char[] chars = alltext.toString().toCharArray();
 
-            if(letter == 'A') doc.setCharacterAttributes(pos, 1, seq.getStyle("Red"), true);
-            if(letter == 'T') doc.setCharacterAttributes(pos, 1, seq.getStyle("Green"), true);
-            if(letter == 'G') doc.setCharacterAttributes(pos, 1, seq.getStyle("Yellow"), true);
-            if(letter == 'C') doc.setCharacterAttributes(pos, 1, seq.getStyle("Blue"), true);
+        if(colorall){
+            for(char l1: chars){
+                if(l1 == 'A') doc.setCharacterAttributes(pos, 1, seq.getStyle("Red"), true);
+                if(l1 == 'T') doc.setCharacterAttributes(pos, 1, seq.getStyle("Green"), true);
+                if(l1 == 'G') doc.setCharacterAttributes(pos, 1, seq.getStyle("Yellow"), true);
+                if(l1 == 'C') doc.setCharacterAttributes(pos, 1, seq.getStyle("Blue"), true);
 
-            pos++;
+                pos++;
+            }
+
+        } else for (char letter: chars){
+        //shift
+        for(int j = 1; j < tmp.length; j++){
+            tmp[j-1] = tmp[j];
+        }
+        tmp[tmp.length-1] = letter;
+
+        if(Arrays.equals(tmp, filter.toCharArray())){
+            for(int i = pos - filter.length() + 1; i < pos +1; i++){
+                char l2 =  chars[i];
+
+                if(l2 == 'A') doc.setCharacterAttributes(i, 1, seq.getStyle("Red"), true);
+                if(l2 == 'T') doc.setCharacterAttributes(i, 1, seq.getStyle("Green"), true);
+                if(l2 == 'G') doc.setCharacterAttributes(i, 1, seq.getStyle("Yellow"), true);
+                if(l2 == 'C') doc.setCharacterAttributes(i, 1, seq.getStyle("Blue"), true);
+            }
+        }
+
+        pos++;
         }
     }
 }
