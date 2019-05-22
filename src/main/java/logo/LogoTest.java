@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
@@ -25,6 +26,17 @@ public class LogoTest {
                                             "annn");
 
         new Logo(seq);
+    }
+
+    @Test
+    public void revtest() throws Exception{
+        List<String> seq  = Arrays.asList(  "aatt",
+                                            "atta",
+                                            "aagt",
+                                            "annn");
+
+        LogoOld l = new LogoOld(seq);
+        l.reverse_complement();
 
     }
 

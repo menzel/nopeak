@@ -12,21 +12,29 @@ import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.util.Arrays;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Gui extends Frame {
 
+    private int sliderwidth = 0;
+    private int height_cutoff;
     private String filter = "^";
     private List<Score> scores;
     private int basematch = 3;
-    private double score_cutoff = 0.1;
+    private double score_cutoff = 0.2;
     private JTextPane seq;
     private StyledDocument doc;
     private boolean colorall = true;
     private Map<String, List<String>> groupedKmers;
     private String hash;
+    private List<String> createdfiles = new ArrayList<>();
 
     public int getBasematch() {
         return basematch;
@@ -42,7 +50,44 @@ public class Gui extends Frame {
         this.scores = scores;
 
         JFrame f = new JFrame("NoPeak");
-        f.setSize(800, 500);
+        f.setSize(900, 700);
+
+        f.addWindowListener( new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent we) {
+
+                createdfiles.forEach(f -> {
+                    try {
+                        Files.deleteIfExists(new File(f).toPath());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+
+
+            groupedKmers.keySet().forEach(base -> {
+                System.out.println(base.toUpperCase());
+                System.out.println(groupedKmers.get(base).size());
+            });
+
+
+            groupedKmers.keySet().forEach(base -> {
+                LogoOld logo = new LogoOld(base, scores);
+
+                System.out.println("=====");
+                System.out.println("-----");
+                System.out.println(base);
+                System.out.println(logo);
+                System.out.println("-----");
+                groupedKmers.get(base).forEach(System.out::println);
+                System.out.println("=====");
+            });
+
+
+            }
+        });
+
 
         final JPanel images = new JPanel();
         f.getContentPane().add(BorderLayout.EAST, images);
@@ -74,6 +119,30 @@ public class Gui extends Frame {
 
         // Slider
 
+        JSlider height_slider = new JSlider(0,100,100);
+        sliderwidth = (int) height_slider.getPreferredSize().getWidth();
+
+        Hist height_hist = new Hist(scores.stream().map(Score::getHeight).collect(Collectors.toList()), 50, sliderwidth);
+
+        double height_factor = (int) scores.stream().sorted(Comparator.comparing(Score::getHeight)).skip((long) scores.size() - 1).findAny().get().getHeight();
+
+        height_slider.addChangeListener(e -> {
+
+            height_cutoff = (int) ((((JSlider) e.getSource()).getValue()/100.0) * height_factor);
+
+            if (!(((JSlider) e.getSource()).getValueIsAdjusting())) {
+                update();
+            }
+        });
+
+        JLabel height_slider_label = new JLabel("Height cutoff:");
+        buttons.add(height_slider_label);
+        buttons.add(height_hist);
+        buttons.add(height_slider);
+
+        // Slider
+        // Slider
+
         JSlider cutoff_slider = new JSlider(0,100,10);
 
         java.util.Hashtable<Integer,JLabel> labelTable = new java.util.Hashtable<>();
@@ -94,8 +163,12 @@ public class Gui extends Frame {
                 update();
         });
 
+
+        Hist cutoff_hist = new Hist(scores.stream().map(Score::getScore).collect(Collectors.toList()), 50, sliderwidth);
+
         JLabel cutoff_slider_label = new JLabel("Score cutoff:");
         buttons.add(cutoff_slider_label);
+        buttons.add(cutoff_hist);
         buttons.add(cutoff_slider);
 
         // Slider
@@ -154,6 +227,17 @@ public class Gui extends Frame {
             }
         });
 
+        //pwms
+        JTextArea pwm = new JTextArea(10,100);
+        pwm.setFont(new Font("Verdana", Font.PLAIN, 9));
+        pwm.setEditable(false);
+        f.getContentPane().add(BorderLayout.SOUTH, pwm);
+
+        JLabel revcomp_label= new JLabel("Reverse complement:");
+        JCheckBox reverse_complement = new JCheckBox();
+        buttons.add(revcomp_label);
+        buttons.add(reverse_complement);
+
         buttons.add(new Box.Filler(new Dimension(5,5),new Dimension(10,10),new Dimension(1000,1000)));
 
 
@@ -161,32 +245,50 @@ public class Gui extends Frame {
         buttons.add(continue_btn);
 
         continue_btn.addActionListener(e -> {
-            f.dispose();
+            //f.dispose();
 
-            System.out.println("Cluster kmers that overlap with at least x bases. Filter kmers with a score less than " + score_cutoff);
-            Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff);
+            Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
+
+            for (String s : groupedKmers.keySet()) {
+                LogoOld logo = new LogoOld(groupedKmers.get(s));
+
+                if(!reverse_complement.isSelected())
+                    logo.reverse_complement();
+
+                try {
+                    Process process = Runtime.getRuntime().exec("python /home/menzel/Desktop/THM/promotion/projekte/nopeak/plot_pwm.py " + Arrays.deepToString(logo.getPwm()).replace(" ", "") + " " + s);
+                    process.waitFor();
+                } catch (IOException | InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            //pwm.setText(pwmtext.toString());
 
             groupedKmers.keySet().forEach(base -> {
-                System.out.println(base.toUpperCase());
-                System.out.println(groupedKmers.get(base).size());
-            });
+                try {
+                    File pdfFile = new File("/tmp/nopeak_logo_" + base + ".pdf");
+                    if (pdfFile.exists()) {
 
-            System.out.println("Create sequence logos from clustered kmers:");
+                        createdfiles.add("/tmp/nopeak_logo_" + base + ".pdf");
 
-            groupedKmers.keySet().forEach(base -> {
-                LogoOld logo = new LogoOld(base, scores);
+                        if (Desktop.isDesktopSupported()) {
+                            Desktop.getDesktop().open(pdfFile);
+                        } else {
+                            System.out.println("Awt Desktop is not supported!");
+                        }
 
-                System.out.println("=====");
-                System.out.println("file: ");
-                System.out.println("-----");
-                System.out.println(base);
-                System.out.println(logo);
-                System.out.println("-----");
-                groupedKmers.get(base).stream().limit(500).forEach(System.out::println);
-                System.out.println("=====");
+                    } else {
+                        System.out.println("File is not exists!");
+                    }
+
+                    System.out.println("Done");
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             });
         });
-
 
         // Slider
         f.setVisible(true);
@@ -195,9 +297,9 @@ public class Gui extends Frame {
 
     private void update(){
 
-        if(!(score_cutoff +  ":" + basematch).equals(hash)) {
-            groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff);
-            hash = score_cutoff + ":" + basematch;
+        if(!(score_cutoff +  ":" + basematch + ":" + height_cutoff).equals(hash)) {
+            groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
+            hash = score_cutoff + ":" + basematch + ":" + height_cutoff;
         }
 
         StringBuilder alltext = new StringBuilder();
@@ -241,6 +343,39 @@ public class Gui extends Frame {
         }
 
         pos++;
+        }
+    }
+        static class Hist extends JComponent{
+
+            ArrayList<Integer> bars;
+            private final int width;
+            int height = 100;
+
+        public Hist(List<Double> values, int bins, int width){
+            bars = new ArrayList<>(Collections.nCopies(bins, 0));
+            this.width = width;
+            double binsize = (Collections.max(values)+0.00000001 - Collections.min(values))/bins;
+
+            int bincounter = 0;
+            for(double i = Collections.min(values); i < Collections.max(values); i+= binsize){
+                for(Double val: values){
+                    if (val >= i && val < i + binsize)
+                        bars.set(bincounter, bars.get(bincounter) + 1);
+                }
+                bincounter += 1;
+            }
+        }
+
+        public void paint(Graphics g) {
+            int barwidth = width/bars.size();
+            double barmax = Collections.max(bars);
+            g.setColor(Color.ORANGE);
+
+            for(int i = 0; i < bars.size(); i++){
+                int barheight =  (int) (height * (Math.log(bars.get(i))/Math.log(barmax)));
+
+                g.fillRect(i*barwidth,height - barheight, barwidth, barheight);
+            }
         }
     }
 }

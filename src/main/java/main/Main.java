@@ -17,15 +17,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-
         long startTime = System.currentTimeMillis();
         String path_sample = null; // path to read bed file
 
         if (args.length > 2) {
             path_sample = args[1];
         } else printusage(args);
-
 
 
         ////////////////////

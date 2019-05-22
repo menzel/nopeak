@@ -1,5 +1,7 @@
 package score;
 
+import org.apache.commons.math3.stat.StatUtils;
+import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 import profile.ProfileLib;
 import profile.Tuple;
 
@@ -10,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -77,17 +80,18 @@ public class Scoring {
      */
     static Tuple<Double, Double> calcScore(List<Integer> profile_sample, List<Integer> profile_control, int fraglen, double factor_s, double factor_c) {
 
-        Tuple<List<Integer>, List<Integer>> normalized  = ProfileLib.normalize(profile_sample, profile_control, factor_s, factor_c);
+        /*Tuple<List<Integer>, List<Integer>> normalized  = ProfileLib.normalize(profile_sample, profile_control, factor_s, factor_c);
 
         profile_control = normalized.getSecond();
         profile_sample = normalized.getFirst();
+         */
 
         // Divide sample profile by control profile because it needs to
         List<Number> profile_sample_controlled = new ArrayList<>(Collections.nCopies(profile_sample.size(),0));
 
         for(int i = 0; i < profile_sample.size(); i++)
-            //profile_sample_controlled.set(i, profile_sample.get(i));
-            profile_sample_controlled.set(i, ((double) profile_sample.get(i)) / profile_control.get(i));
+            profile_sample_controlled.set(i, profile_sample.get(i));
+            //profile_sample_controlled.set(i, ((double) profile_sample.get(i)) / profile_control.get(i));
 
         List<Double> sma = getSma(profile_sample_controlled, 10);
         /*
@@ -129,8 +133,23 @@ public class Scoring {
         }
 
 
+        // check smoothness
+        if(smooth_fc(sma) < 50){
+
+            return Tuple.EMPTY_DOUBLE_TUPLE;
+        }
+
         double delta  = sma.get(pos) - half_max;
+        //return new Tuple<>(smooth_fc(sma), max - min);
         return new Tuple<>(Math.abs(delta / (max - half_max)), max - min);
+    }
+
+    private static double smooth_fc(List<Double> sma) {
+        int d = 20;
+        double[] diff = IntStream.range(d, sma.size()).mapToObj(i -> sma.get(i) - sma.get(i - d)).mapToDouble(v->v).toArray();
+
+        StandardDeviation sd = new StandardDeviation();
+        return sd.evaluate(diff) / Math.abs(StatUtils.mean(diff));
     }
 
     /**

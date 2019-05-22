@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
 public class GroupKMers {
 
     /**
-     *
-     * @param scores
+     *  @param scores
      * @param basematch
      * @param score_cutoff
+     * @param height_cutoff
      */
-    public static Map<String, List<String>> groupKMers(List<Score> scores, int basematch, double score_cutoff) {
+    public static Map<String, List<String>> groupKMers(List<Score> scores, int basematch, double score_cutoff, int height_cutoff) {
 
         Map<String, List<String>> mers = new TreeMap<>();
 
@@ -24,7 +24,8 @@ public class GroupKMers {
             double score = s.getScore();
 
             if(score < 0) continue; // ignore negative scores
-            if(score > score_cutoff) continue; // break after the scores are too high
+            if(score > score_cutoff) continue;
+            if(s.getHeight() < height_cutoff) continue;
 
 
             if(mers.size() == 0) { //always add the first qmer to the list

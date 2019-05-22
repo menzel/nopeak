@@ -114,7 +114,6 @@ public class Profile {
 
         result = lib.merge_fw_and_bw(profiles_n, profiles_p);
 
-        System.out.println("foo");
         //writeProfilesToFile("/tmp/profiles_" + readPath.split("/")[readPath.split("/").length - 1] + ".csv");
     }
 

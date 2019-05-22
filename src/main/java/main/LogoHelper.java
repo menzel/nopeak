@@ -68,10 +68,8 @@ class LogoHelper {
             // Cluster the found kmers to create sequence logos
             ////////////////////
 
-        /*
-
             System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Cluster kmers that overlap with at least x bases. Filter kmers with a score less than " + score_cutoff);
-            Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, gui.getBasematch(), gui.getScore_cutoff());
+            Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, gui.getBasematch(), gui.getScore_cutoff(), Integer.MAX_VALUE);
 
             groupedKmers.keySet().forEach(base -> {
                 System.out.println(base.toUpperCase());
@@ -95,7 +93,6 @@ class LogoHelper {
 
             System.out.println("Execution time " + (int) (System.currentTimeMillis() - startTime));
 
-         */
 
     }
 }

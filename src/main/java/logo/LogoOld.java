@@ -13,10 +13,18 @@ public class LogoOld {
     private static Map<Character, Integer> mapping = new TreeMap<>();
 
     static {
+        /*
         mapping.put('a', 3);
         mapping.put('t', 0);
         mapping.put('g', 1);
         mapping.put('c', 2);
+        mapping.put('n', 4);
+         */
+
+        mapping.put('a', 0);
+        mapping.put('t', 3);
+        mapping.put('g', 2);
+        mapping.put('c', 1);
         mapping.put('n', 4);
     }
 
@@ -100,4 +108,33 @@ public class LogoOld {
         return pwm;
     }
 
+    public void reverse_complement() {
+        int[][] newpwm = new int[pwm.length][pwm[0].length];
+
+        // ATGCN
+
+        for (int pos = 1; pos <= pwm.length; pos++) {
+            for (int l = 0; l < pwm[0].length; l++) {
+                switch (l){
+                    case 0:
+                        newpwm[pwm.length - pos][3] = pwm[pos -1][0];
+                        break;
+                    case 1:
+                        newpwm[pwm.length - pos][2] = pwm[pos -1][1];
+                        break;
+                    case 2:
+                        newpwm[pwm.length - pos][1] = pwm[pos -1][2];
+                        break;
+                    case 3:
+                        newpwm[pwm.length - pos][0] = pwm[pos -1][3];
+                        break;
+                    case 4:
+                        newpwm[pwm.length - pos][4] = pwm[pos -1][4];
+                    break;
+                }
+            }
+        }
+
+        this.pwm = newpwm;
+    }
 }
