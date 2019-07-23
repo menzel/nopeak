@@ -10,7 +10,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -83,8 +85,7 @@ public class Profile {
         Map<String, List<Integer>> profiles_p = Collections.synchronizedMap(new TreeMap<>());
         Map<String, List<Integer>> profiles_n = Collections.synchronizedMap(new TreeMap<>());
 
-        //for (int i: new int[]{10,11,12,13,14,15,16,17,18,19,1,20,21,22,2,3,4,5,6,7,8,9,23,24}) {
-        for (int i: new int[]{1,24}) {
+        for (int i : new int[]{10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 20, 21, 22, 2, 3, 4, 5, 6, 7, 8, 9, 23, 24}) {
 
             String chr;
             if (i == 23) chr = "chrX";
@@ -110,11 +111,7 @@ public class Profile {
         profiles_n = lib.fold_profile(profiles_n);
         profiles_p = lib.fold_profile(profiles_p);
 
-        //FraglenEstimate.estimateFraglen(profiles_p, profiles_n);
-
         result = lib.merge_fw_and_bw(profiles_n, profiles_p);
-
-        //writeProfilesToFile("/tmp/profiles_" + readPath.split("/")[readPath.split("/").length - 1] + ".csv");
     }
 
     /**
@@ -192,7 +189,7 @@ public class Profile {
             // data
             for(String qmer: result.keySet()){
                 writer.write(qmer.toUpperCase() + "\t");
-                writer.write(String.join("\t", result.get(qmer).stream().map(i -> Integer.toString(i)).collect(Collectors.toList())));
+                writer.write(result.get(qmer).stream().map(i -> Integer.toString(i)).collect(Collectors.joining("\t")));
                 writer.write("\n");
             }
 
@@ -203,7 +200,7 @@ public class Profile {
         System.out.println("Wrote profiles to " + path.toAbsolutePath());
     }
 
-    public int getReadcount() {
+    int getReadcount() {
         return this.readcount;
     }
 

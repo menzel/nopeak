@@ -1,9 +1,11 @@
 package logo;
 
-import java.util.Map;
-
 import score.Score;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class LogoOld {
@@ -30,9 +32,7 @@ public class LogoOld {
 
     public LogoOld(List<String> kmers) {
 
-
         pwm = new int[kmers.get(0).length()][5];
-
 
         for(String kmer: kmers){
             char[] charArray = kmer.toCharArray();
@@ -87,20 +87,20 @@ public class LogoOld {
     }
 
     public String otherToString(){
-        String r = "";
+        StringBuilder r = new StringBuilder();
 
-        r += ("a\tt\tg\tc\tn\n");
+        r.append("a\tt\tg\tc\tn\n");
 
         for(int j = 0; j < pwm.length; j++) {
-            r += j + "\t";
+            r.append(j).append("\t");
             for (int i = 0; i < 5; i++) {
-                r += pwm[j][i];
-                r += "\t";
+                r.append(pwm[j][i]);
+                r.append("\t");
             }
-            r += "\n";
+            r.append("\n");
         }
 
-        return r;
+        return r.toString();
     }
 
 
@@ -136,5 +136,23 @@ public class LogoOld {
         }
 
         this.pwm = newpwm;
+    }
+
+
+    public List<List<Integer>> getPwmWithoutN() {
+
+        List<List<Integer>> tmp = new ArrayList<>();
+
+        for (int[] pos : pwm) {
+
+            List<Integer> t = new ArrayList<>();
+            for (int base = 0; base < 4; base++)
+                t.add(pos[base]);
+
+            if (t.stream().mapToInt(i -> i).sum() > 0)
+                tmp.add(t);
+        }
+
+        return tmp;
     }
 }

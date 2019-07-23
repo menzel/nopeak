@@ -1,11 +1,7 @@
 package main;
 
-import gui.Gui;
-import logo.Logo;
 import profile.Profile;
-import score.Score;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -38,14 +34,13 @@ public class Main {
 
             int threadsc = Integer.parseInt(args[4]);
             threadsc = threadsc > 24 ? 24 : threadsc; //limit max thread count to 24
-            threadsc = 2;
             int radius = 500;
 
 
             System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Building profiles for " + args[3] + "-mers for a radius of " + radius +  " bp around each read");
 
             ////////////////////
-            // Create Profiles for control data
+            // Create Profiles for reads
             ////////////////////
 
             Profile control = new Profile(path_sample, args[2], Integer.parseInt(args[3]), radius, threadsc);
@@ -69,32 +64,33 @@ public class Main {
             }
 
             for(BatchJob job: jobs)
-                LogoHelper.logo(job.getControl().toString(), job.getData().toString(), 0.4, job.getFraglen());
+                LogoHelper.logo(job.getControl().toString(), job.getData().toString(), job.getFraglen(), false);
 
         ////////////////////
-        // use two profile files
+            // Get logo from pre-build profile files
         ////////////////////
-        } else if ("LOGO".equals(args[0])) {
-            LogoHelper.logo(args);
+        } else if ("LOGO".equals(args[0]) || "LOGO_GUI".equals(args[0])) {
 
-        } else if ("test".equals(args[0])) {
-            List<Score> seq = new ArrayList<>();
+            String path_control;
+            int fraglen = Integer.parseInt(args[args.length - 1]); // last argument is the fraglen for the signal reads
+            boolean show_gui = args[0].contains("GUI");
 
-            try (BufferedReader br = Files.newBufferedReader(Paths.get("/home/menzel/Desktop/THM/promotion/projekte/nopeak/Scores_profile_ENCFF000YTY.500.csv_1001"))) {
+            if (args.length <= 4) { // PROFILE reads 100
 
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] parts = line.split("\t");
-                    seq.add(new Score(parts[0],Double.parseDouble(parts[1]),Double.parseDouble(parts[2])));
+                if (args.length <= 3) {
+                    System.err.println("Expected params: LOGO signal_profiles fragment_length");
+                    System.err.println("Or with control file: LOGO signal_profiles control_profiles fragment_length");
+                    System.err.println("Use estimate_fraglen.jar to estimate the fragment length");
+                    System.err.println("Run example: java -jar NoPeak.jar LOGO profile.csv 100");
+                    System.exit(1);
                 }
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                LogoHelper.logo(path_sample, fraglen, show_gui);
+
+            } else {
+                path_control = args[2];
+                LogoHelper.logo(path_control, path_sample, fraglen, show_gui);
             }
-
-        Logo logo = new Logo(seq.get(0).getQmer(),seq);
-
-
 
         } else printusage(args);
 

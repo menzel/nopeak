@@ -94,8 +94,6 @@ public class GroupKMers {
 
         toRemove.forEach(mers::remove);
 
-        System.out.println("Removing kmer clusters with less than " + (expected_random_list_length+1) + " kmers.");
-
         return mers;
     }
 
@@ -145,7 +143,7 @@ public class GroupKMers {
                 b = get_base(base, i);
             }
 
-            if(q != 'X' && b != 'X' && q == b)
+            if (b != 'X' && q == b)
                 score += 1;
         }
 

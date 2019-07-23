@@ -3,9 +3,12 @@ package score;
 import org.junit.Test;
 import profile.Profile;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ScoringTest {
 
@@ -15,7 +18,7 @@ public class ScoringTest {
         List<Integer> first = Arrays.asList(1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1,1,1,2,2,2,3,1);
         List<Integer> second = new ArrayList<>(Collections.nCopies(1, first.size()));
 
-        double score = Scoring.calcScore(first, second, 2, 1.,1.).getFirst();
+        double score = Scoring.calcScore(first, second, 2).getFirst();
 
         assertEquals(0.57, score, 0.05);
     }
@@ -38,7 +41,7 @@ public class ScoringTest {
         //TODO compare the scores with better_get_scores.py output
 
         for(String kmer: test.getResult().keySet()){
-            double score = Scoring.calcScore(test.getResult().get(kmer), test.getResult().get(kmer), 116, 1000., 1000.).getFirst();
+            double score = Scoring.calcScore(test.getResult().get(kmer), test.getResult().get(kmer), 116).getFirst();
             if(score > 0 && kmer.startsWith("aattt"))
                 System.out.println(kmer + "\t" + score);
         }

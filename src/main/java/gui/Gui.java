@@ -17,14 +17,14 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Gui extends Frame {
 
-    private int sliderwidth = 0;
-    private int height_cutoff;
+    private int sliderwidth;
+    private int height_cutoff = 20;
     private String filter = "^";
     private List<Score> scores;
     private int basematch = 3;
@@ -119,7 +119,7 @@ public class Gui extends Frame {
 
         // Slider
 
-        JSlider height_slider = new JSlider(0,100,100);
+        JSlider height_slider = new JSlider(0, 100, height_cutoff);
         sliderwidth = (int) height_slider.getPreferredSize().getWidth();
 
         Hist height_hist = new Hist(scores.stream().map(Score::getHeight).collect(Collectors.toList()), 50, sliderwidth);
@@ -136,6 +136,9 @@ public class Gui extends Frame {
         });
 
         JLabel height_slider_label = new JLabel("Height cutoff:");
+        height_slider.setPaintTicks(true);
+        height_slider.setPaintLabels(true);
+
         buttons.add(height_slider_label);
         buttons.add(height_hist);
         buttons.add(height_slider);
@@ -248,6 +251,7 @@ public class Gui extends Frame {
             //f.dispose();
 
             Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
+            System.out.println("Basematch: " + basematch + " score cutoff: " + score_cutoff + " height cutoff: " + height_cutoff);
 
             for (String s : groupedKmers.keySet()) {
                 LogoOld logo = new LogoOld(groupedKmers.get(s));
@@ -306,7 +310,8 @@ public class Gui extends Frame {
 
         for (String base : groupedKmers.keySet()) {
             alltext.append(ProfileLib.reverse_complement(base).toUpperCase().replace("N", "")).append("\t");
-            alltext.append(base.toUpperCase().replace("N", "")).append("\n");
+            alltext.append(base.toUpperCase().replace("N", ""));
+            alltext.append("\t").append(groupedKmers.get(base).size()).append("\n");
         }
 
         seq.setText(alltext.toString());
@@ -351,7 +356,7 @@ public class Gui extends Frame {
             private final int width;
             int height = 100;
 
-        public Hist(List<Double> values, int bins, int width){
+            Hist(List<Double> values, int bins, int width) {
             bars = new ArrayList<>(Collections.nCopies(bins, 0));
             this.width = width;
             double binsize = (Collections.max(values)+0.00000001 - Collections.min(values))/bins;
@@ -372,7 +377,7 @@ public class Gui extends Frame {
             g.setColor(Color.ORANGE);
 
             for(int i = 0; i < bars.size(); i++){
-                int barheight =  (int) (height * (Math.log(bars.get(i))/Math.log(barmax)));
+                int barheight = (int) (height * (Math.log10(bars.get(i)) / Math.log10(barmax)));
 
                 g.fillRect(i*barwidth,height - barheight, barwidth, barheight);
             }

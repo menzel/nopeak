@@ -2,7 +2,6 @@ package logo;
 
 import org.junit.Test;
 import score.Score;
-import sun.rmi.runtime.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,10 +10,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
-import static org.junit.Assert.*;
 
 public class LogoTest {
 
