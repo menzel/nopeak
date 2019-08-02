@@ -21,8 +21,9 @@ class Guesser {
 
         double best = 100;
 
-        for (double s = 0; s < 1; s += 0.1) { //scores
-            for (double h = 0; h < max_height; h += max_height / 10.0) { //heights
+        for (double s = 0; s < 0.5; s += 0.1) { //scores
+            for (double h = max_height; h > (max_height/10.0); h -= max_height / 10.0) { //heights
+
                 double score = opt(scores, basematch, s, (int) h);
 
                 if (score < best && score > 0.1) {
