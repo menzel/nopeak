@@ -25,27 +25,31 @@ The NoPeak Software uses the integration profile of k-mers based on mapped reads
 
 ## Create profiles:
 
-java -jar NoPeak.jar PROFILE reads.bed hg19.fa 8 4
+java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa -k 8
 
 * Where reads.bed is the file with the mapped reads that should be analyzed, e.g.:
 
-> chr1	807531	807581	sample	1	-
-> chr1	809492	809542	sample	1	-
-> chr1	1379054	1379104	sample	1	-
-> ... 
+    > chr1	807531	807581	sample	1	-
+    > chr1	809492	809542	sample	1	-
+    > chr1	1379054	1379104	sample	1	-
+    > ... 
 
-* k-mer length: Sets the length of the k-mers to find. The default value is 8 bases.
+* hg19.fa is the human genome as .fasta-file
 
-* threads: Number of computation threads to run, should be smaller than the available thread count, at most 24.
+* -k k-mer length: Sets the length of the k-mers to find. The default value is 8 bases.
+
 
 ## Create motif 
 
 * Example:
-java -jar noPeak.jar LOGO reads.csv control.csv 100
+java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 100
+
 * reads.csv and control.csv contain the profiles that were created using NoPeak in a previous PROFILE run:
 
-> GCCATGAC        130     131     122     121     119     122 ...
-> GCCATGAA        170     187     182     203     168     178 ...
-> ...
+    > GCCATGAC        130     131     122     121     119     122 ...
+    > GCCATGAA        170     187     182     203     168     178 ...
+    > ...
+
+* Controls are optional but recommended.
 
 * fragment length: Estimated fragment length. You can use the included estimate_fraglen.jar tool or any other estimation tool.  
