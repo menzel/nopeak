@@ -42,7 +42,7 @@ java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa -k 8
 ## Create motif 
 
 * Example:
-java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 100
+java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 100 [--export-kmers file]
 
 * reads.csv and control.csv contain the profiles that were created using NoPeak in a previous PROFILE run:
 
@@ -53,3 +53,5 @@ java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 1
 * Controls are optional but recommended.
 
 * fragment length: Estimated fragment length. You can use the included estimate_fraglen.jar tool or any other estimation tool.  
+
+* --export-kers export k-mers with scores in an intermediate step. Scores are the profile heights. Absolute height if there are no controls, with controls the scores are relative values.
