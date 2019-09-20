@@ -55,7 +55,7 @@ public class Main {
             threadsc = threadsc > 24 ? 24 : threadsc; //limit max thread count to 24
             Integer radius = input.getInt("radius");
 
-            System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Building profiles for " + args[3] + "-mers for a radius of " + radius +  " bp around each read");
+            System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Building profiles for " + input.getInt("k") + "-mers for a radius of " + radius +  " bp around each read");
 
             String path = input.get("reads");
 
@@ -72,9 +72,9 @@ public class Main {
             boolean show_gui = input.getBoolean("gui");
 
             if(input.get("control") == null) {
-                LogoHelper.logo(input.getString("signal"), fraglen, show_gui, input.getString("export-kmers"));
+                LogoHelper.logo(input.getString("signal"), fraglen, show_gui, input.getString("export_kmers"));
             } else {
-                LogoHelper.logo(input.getString("control"), input.getString("signal"), fraglen, show_gui, input.getString("export-kmers"));
+                LogoHelper.logo(input.getString("control"), input.getString("signal"), fraglen, show_gui, input.getString("export_kmers"));
             }
         }
     }

@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43189c3f-fb2f-4c75-8dea-7b542fa0298e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/nopeak2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Gui.java" afterDir="false" />
+    <list default="true" id="43189c3f-fb2f-4c75-8dea-7b542fa0298e" name="Default Changelist" comment="Publication refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nopeak2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nopeak2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filter/GroupKMers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filter/GroupKMers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fraglen/FraglenEstimate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/LogoHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/LogoHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logo/Logo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logo/Logo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/profile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/profile/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/score/Scoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/score/Scoring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/logo/LogoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logo/LogoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/NoPeak-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/NoPeak-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/NoPeak-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/filter/GroupKMers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/filter/GroupKMers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fraglen/FraglenEstimate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/filter/GroupKMersTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/filter/GroupKMersTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logo/LogoOld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logo/LogoOld.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/LogoHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/LogoHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/profile/Profile$chr_wrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/profile/Profile$chr_wrapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/profile/Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/profile/Profile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/profile/ProfileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/profile/ProfileTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/score/Scoring.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/score/Scoring.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logo/LogoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/score/ScoringTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/score/ScoringTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-logo.LogoTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bullet_point.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/collapseall.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/failed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/jquery-1.7.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/logo.LogoTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/logo.LogoTest/Command line test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/logo.LogoTest/Command line test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/navigator-bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/Command line test.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/methods-alphabetical.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/methods-not-run.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/methods.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/reporter-output.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/testng.xml.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/logo.LogoTest/toc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/passed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/skipped.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng.css" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,6 +59,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="240" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -52,34 +80,16 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="nopeak" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/profile/NoPeakTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main/LogoHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+            <state relative-caret-position="216">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,16 +98,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/Gui.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/score/Score.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="43" />
+            <state relative-caret-position="846">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#341#342#0" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#476#477#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#867#868#0" expanded="true" />
+                <element signature="e#908#909#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#607#608#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,14 +130,18 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1242">
+              <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/filter/GroupKMers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1674">
-              <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+            <state relative-caret-position="306">
+              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,19 +150,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/profile/ProfileLib.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logo/LogoOld.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/score/Scoring.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+            <state relative-caret-position="162">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,8 +164,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/profile/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
+            <state relative-caret-position="226">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logo/Logo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/main/Guesser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logo/LogoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,6 +221,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>reverse</find>
+      <find>Reading contro</find>
+      <find>outside of</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -172,19 +233,28 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/main/MainK.java" />
         <option value="$PROJECT_DIR$/src/test/java/logo/LogoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logo/LogoOld.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/BatchJob.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/profile/ProfileLib.java" />
-        <option value="$PROJECT_DIR$/src/main/java/profile/Profile.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/UI.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/MyUI.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/Pdf.java" />
+        <option value="$PROJECT_DIR$/src/main/java/filter/GroupKMersTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/Histogram.java" />
+        <option value="$PROJECT_DIR$/src/main/java/profile/ProfileTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logo/LogoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/score/ScoringTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/filter/GroupKMers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/main/LogoHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/Gui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logo/LogoOld.java" />
+        <option value="$PROJECT_DIR$/src/main/java/profile/Profile.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/main/LogoHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/score/Scoring.java" />
+        <option value="$PROJECT_DIR$/src/main/java/score/Score.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logo/Logo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Guesser.java" />
       </list>
     </option>
   </component>
@@ -207,6 +277,11 @@
           <item name="NoPeak" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="NoPeak" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
       </expand>
       <select />
     </treeState>
@@ -223,8 +298,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -308,60 +381,12 @@
               <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="awt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="awt" type="462c0819:PsiDirectoryNode" />
-              <item name="event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javax" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nopeak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javax" type="462c0819:PsiDirectoryNode" />
-              <item name="swing" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,11 +395,15 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553770537190" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -385,6 +414,7 @@
       <recent name="logo" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="gui" />
       <recent name="main" />
     </key>
   </component>
@@ -400,23 +430,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.max_neu">
+  <component name="RunManager" selected="Application.max">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_gabpa.bed.csv $PROJECT_DIR$/../profile_gabpa_control.csv 8 100" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -429,6 +445,20 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Pdf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.Pdf" />
+      <module name="nopeak2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -456,10 +486,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="atf4_blured" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="nopeak2" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_atf4.reduced_0.bed.csv $PROJECT_DIR$/../profile_atf4_control.sam.bed.csv 8 228" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="bhlhe" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_bhlhe.sam.bed.csv $PROJECT_DIR$/../profile_bhlhe_control.sam.bed.csv 8 185" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_ENCFF216ZWY.bed.csv $PROJECT_DIR$/../profile_bhlhe_control.sam.bed.csv 8 185" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bhlhe_reduced" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="nopeak2" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_bhlhe.csv $PROJECT_DIR$/../profile_bhlhe_control.sam.bed.csv 8 185" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -487,7 +545,21 @@
     <configuration name="foxa1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_foxa1.sam.bed.csv $PROJECT_DIR$/../profile_foxa1_control.sam.bed.csv 8 200 &gt; foxa1result" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_foxa1.sam.bed.csv ~/hg19 8 200" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="foxa1_reduced" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="nopeak2" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_foxa1.reduced.2.bed.csv $PROJECT_DIR$/../profile_foxa1_control.sam.bed.csv 8 200" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -512,10 +584,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gapba_neu" type="Application" factoryName="Application">
+    <configuration name="gapba_blurred" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../gabpa_new/profile_gabpa.sam.bed.csv $PROJECT_DIR$/../gabpa_new/profile_gabpa_control.sam.bed.csv 8 143" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_gabpa_blurred.3k.csv $PROJECT_DIR$/../profile_gabpa_control.csv 8 116" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="help" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="NoPeak" />
+      <option name="PROGRAM_PARAMETERS" value="--help" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -528,8 +614,8 @@
     </configuration>
     <configuration name="jun" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_jun.sam.bed.csv $PROJECT_DIR$/../profile_jun_control_2.sam.bed.csv 8 193 &gt; jun" />
+      <module name="NoPeak" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO --signal $PROJECT_DIR$/../profile_round_1_ENCFF000YAM.csv --fraglen 160" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -541,9 +627,11 @@
       </method>
     </configuration>
     <configuration name="max" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_ENCFF000YTY.500.csv $USER_HOME$/profiles_max_control.bed.csv 8 116" />
+      <module name="NoPeak" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO -s/home/menzel/Desktop/THM/promotion/projekte/nopeak/profiles/profile_round_0_ENCFF000NDP.csv -f 101 --gui" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -557,7 +645,7 @@
     <configuration name="max_neu" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="nopeak2" />
-      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_max_new.sam.bed.csv $USER_HOME$/profiles_max_control.bed.csv 8 126" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO_GUI $PROJECT_DIR$/../profile_round_0_ENCFF000NDP.csv 8 99" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -572,6 +660,20 @@
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="nopeak2" />
       <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_pou2f2.sam.bed.csv $PROJECT_DIR$/../profile_pou2f2_control_2.sam.bed.csv 8 81 &gt; pou2f2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="nopeak2" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_rest.sam.bed.csv $PROJECT_DIR$/../profile_rest_control.sam.bed.csv 8 131 &gt; rest" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -611,36 +713,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogoTest.createLogoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="six5_second" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="nopeak2" />
+      <option name="PROGRAM_PARAMETERS" value="LOGO $PROJECT_DIR$/../profile_six5_second.sam.bed.csv $PROJECT_DIR$/../profile_six5_control.sam.bed.csv 8 125" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="logo.*" />
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="logo" />
-      <option name="MAIN_CLASS_NAME" value="logo.LogoTest" />
-      <option name="METHOD_NAME" value="createLogoTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogoTest.createLogoVarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="nopeak2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="logo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="logo" />
-      <option name="MAIN_CLASS_NAME" value="logo.LogoTest" />
-      <option name="METHOD_NAME" value="createLogoVarTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -662,37 +744,63 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LogoTest.revtest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nopeak2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="logo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="logo" />
+      <option name="MAIN_CLASS_NAME" value="logo.LogoTest" />
+      <option name="METHOD_NAME" value="revtest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileTest.testProfileGen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nopeak2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="profile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="profile" />
+      <option name="MAIN_CLASS_NAME" value="profile.ProfileTest" />
+      <option name="METHOD_NAME" value="testProfileGen" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileTest.testReadControl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nopeak2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="profile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="profile" />
+      <option name="MAIN_CLASS_NAME" value="profile.ProfileTest" />
+      <option name="METHOD_NAME" value="testReadControl" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="NoPeak [install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="install" />
-              </list>
-            </option>
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
     </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
@@ -716,29 +824,35 @@
       <item itemvalue="Application.max" />
       <item itemvalue="Application.max_neu" />
       <item itemvalue="Application.gapba" />
-      <item itemvalue="Application.gapba_neu" />
+      <item itemvalue="Application.gapba_blurred" />
       <item itemvalue="Application.atf4" />
+      <item itemvalue="Application.atf4_blured" />
       <item itemvalue="Application.ctcf" />
       <item itemvalue="Application.foxa1" />
+      <item itemvalue="Application.foxa1_reduced" />
       <item itemvalue="Application.pou2f2" />
       <item itemvalue="Application.jun" />
+      <item itemvalue="Application.help" />
+      <item itemvalue="Application.rest" />
       <item itemvalue="Application.bhlhe" />
+      <item itemvalue="Application.bhlhe_reduced" />
       <item itemvalue="Application.NRSF" />
       <item itemvalue="Application.six5" />
+      <item itemvalue="Application.six5_second" />
       <item itemvalue="Application.rust_test" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.LogoTest.createLogoVarTest" />
+      <item itemvalue="Application.Pdf" />
       <item itemvalue="JUnit.LogoTest.gabpaTest" />
-      <item itemvalue="JUnit.LogoTest.createLogoTest" />
-      <item itemvalue="Maven.NoPeak [install]" />
+      <item itemvalue="JUnit.LogoTest.revtest" />
+      <item itemvalue="JUnit.ProfileTest.testReadControl" />
+      <item itemvalue="JUnit.ProfileTest.testProfileGen" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProfileTest.testProfileGen" />
+        <item itemvalue="JUnit.ProfileTest.testReadControl" />
+        <item itemvalue="JUnit.LogoTest.revtest" />
+        <item itemvalue="Application.Pdf" />
         <item itemvalue="JUnit.LogoTest.gabpaTest" />
-        <item itemvalue="JUnit.LogoTest.createLogoVarTest" />
-        <item itemvalue="JUnit.LogoTest.createLogoTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Maven.NoPeak [install]" />
       </list>
     </recent_temporary>
   </component>
@@ -770,7 +884,33 @@
       <workItem from="1555317851245" duration="17302000" />
       <workItem from="1555578605604" duration="599000" />
       <workItem from="1556095539874" duration="18044000" />
-      <workItem from="1556526336240" duration="6489000" />
+      <workItem from="1556526336240" duration="12228000" />
+      <workItem from="1556623271158" duration="3222000" />
+      <workItem from="1557216965077" duration="29005000" />
+      <workItem from="1557737221020" duration="24890000" />
+      <workItem from="1558427713006" duration="18423000" />
+      <workItem from="1558530609874" duration="24953000" />
+      <workItem from="1558943427109" duration="14492000" />
+      <workItem from="1559549472907" duration="9132000" />
+      <workItem from="1559645948970" duration="476000" />
+      <workItem from="1559731052110" duration="7529000" />
+      <workItem from="1559892648476" duration="1997000" />
+      <workItem from="1560246627524" duration="18252000" />
+      <workItem from="1560500936259" duration="2214000" />
+      <workItem from="1560756746223" duration="7693000" />
+      <workItem from="1561374528331" duration="14477000" />
+      <workItem from="1562659231496" duration="14503000" />
+      <workItem from="1562835306527" duration="1483000" />
+      <workItem from="1563178330049" duration="10615000" />
+      <workItem from="1563796384417" duration="7070000" />
+      <workItem from="1563955911970" duration="64000" />
+      <workItem from="1563956552050" duration="13304000" />
+      <workItem from="1564742085202" duration="5020000" />
+      <workItem from="1564990593132" duration="11255000" />
+      <workItem from="1566900126323" duration="4375000" />
+      <workItem from="1568100257504" duration="7803000" />
+      <workItem from="1568632787033" duration="3399000" />
+      <workItem from="1568989781210" duration="1793000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1552997972810</created>
@@ -779,49 +919,125 @@
       <option name="project" value="LOCAL" />
       <updated>1552997972810</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="gui filter">
+      <created>1557235808424</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557235808424</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gui filter imp">
+      <created>1557237371826</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557237371826</updated>
+    </task>
+    <task id="LOCAL-00004" summary="GUI">
+      <created>1558531636839</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1558531636839</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Publication refactor">
+      <created>1563872143767</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1563872143767</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated maven pom">
+      <created>1563872161322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1563872161322</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Argparse">
+      <created>1566903432928</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1566903432928</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LogoTest_createLogoVarTest - 2019.02.19 at 13h 22m 08s.xml">
-      <configuration name="LogoTest.createLogoVarTest" configurationId="JUnit" />
+    <history-entry file="LogoTest_revtest - 2019.05.22 at 11h 46m 45s.xml">
+      <configuration name="LogoTest.revtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.02.20 at 14h 23m 42s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="LogoTest_revtest - 2019.05.22 at 11h 46m 49s.xml">
+      <configuration name="LogoTest.revtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.03.06 at 13h 14m 01s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="LogoTest_revtest - 2019.05.22 at 11h 47m 12s.xml">
+      <configuration name="LogoTest.revtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_createLogoTest - 2019.03.06 at 14h 34m 09s.xml">
-      <configuration name="LogoTest.createLogoTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testReadControl - 2019.06.03 at 10h 52m 30s.xml">
+      <configuration name="ProfileTest.testReadControl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_createLogoVarTest - 2019.03.06 at 14h 34m 18s.xml">
-      <configuration name="LogoTest.createLogoVarTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testProfileGen - 2019.06.03 at 10h 56m 40s.xml">
+      <configuration name="ProfileTest.testProfileGen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.03.06 at 14h 34m 35s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testProfileGen - 2019.06.03 at 10h 57m 11s.xml">
+      <configuration name="ProfileTest.testProfileGen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.03.06 at 14h 34m 51s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testProfileGen - 2019.06.03 at 10h 57m 54s.xml">
+      <configuration name="ProfileTest.testProfileGen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.03.06 at 14h 35m 07s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testProfileGen - 2019.06.03 at 11h 03m 39s.xml">
+      <configuration name="ProfileTest.testProfileGen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.03.06 at 14h 35m 50s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testProfileGen - 2019.06.03 at 11h 03m 56s.xml">
+      <configuration name="ProfileTest.testProfileGen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogoTest_gabpaTest - 2019.03.06 at 14h 37m 09s.xml">
-      <configuration name="LogoTest.gabpaTest" configurationId="JUnit" />
+    <history-entry file="ProfileTest_testProfileGen - 2019.06.03 at 12h 46m 05s.xml">
+      <configuration name="ProfileTest.testProfileGen" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204093000" />
+    <option name="totallyTimeSpent" value="467271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1181" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49935317" visible="true" weight="0.18342246" />
-      <window_info id="Structure" order="1" sideWeight="0.5006468" side_tool="true" weight="0.17754011" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49702734" visible="true" weight="0.1764706" />
+      <window_info id="Structure" order="1" sideWeight="0.50297266" side_tool="true" weight="0.17005348" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.501868" side_tool="true" weight="0.1684492" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893048" weight="0.18096136" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.30442977" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.35249764" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49893048" weight="0.17428268" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50106955" side_tool="true" weight="0.24033931" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3751178" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32994652" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.096791446" />
+      <window_info anchor="right" id="Cargo" order="9" weight="0.32994652" />
+      <window_info anchor="right" id="Maven" order="10" visible="true" weight="0.036898397" />
+      <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32994652" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49860725" visible="true" weight="0.14919786" />
+      <window_info id="Structure" order="1" sideWeight="0.5013928" side_tool="true" weight="0.14919786" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -829,14 +1045,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48162112" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.36757776" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18473138" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42318568" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49946523" weight="0.2535344" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49946523" weight="0.12818097" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005348" side_tool="true" weight="0.5443396" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32799247" />
@@ -850,25 +1066,46 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.096791446" />
       <window_info anchor="right" id="Cargo" order="9" />
-      <window_info anchor="right" id="Maven" order="10" visible="true" weight="0.1459893" />
-    </layout>
+      <window_info anchor="right" id="Maven" order="10" visible="true" weight="0.08181818" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="gui filter" />
+    <MESSAGE value="gui filter imp" />
+    <MESSAGE value="GUI" />
+    <MESSAGE value="Publication refactor" />
+    <MESSAGE value="updated maven pom" />
+    <MESSAGE value="Argparse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Argparse" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/logo/LogoTest.java</url>
-          <line>53</line>
+          <line>60</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
@@ -884,11 +1121,56 @@
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/Gui.java</url>
+          <line>342</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/logo/LogoOld.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="pwm.length - pos" language="JAVA" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/nopeak$six5.ic" NAME="six5 Coverage Results" MODIFIED="1558528633808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.*</FILTER>
+    </SUITE>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>qmer.equals(&quot;CACACACA&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>qmer.equals(&quot;cacgtgcc&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>score.qmer.equals(&quot;acttccg&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>qmer.equals(&quot;cgccgccg&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>qmer.equals(&quot;gctgtcca&quot;)</expression-string>
         <language-id>JAVA</language-id>
@@ -905,49 +1187,56 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>pwm.length - pos</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>control.result.get(&quot;caccgaaa&quot;)</expression-string>
+        <expression-string>profile_sample.size()/2+1-fraglen</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>profile.get(&quot;aaccctaa&quot;)</expression-string>
+        <expression-string>profile_sample.size()/2+1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>profiles.get(&quot;aaccctaa&quot;)</expression-string>
+        <expression-string>profile_sample.size()/2</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>pos + radius + q / 2</expression-string>
+        <expression-string>profile_sample.size()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>pos + radius</expression-string>
+        <expression-string>fraglen*1.3+ pos</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>kmers.stream().filter(a -&gt; a.getQmer().endsWith(&quot;aacgtgcg&quot;)).findAny()</expression-string>
+        <expression-string>fraglen*1.3</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>kmers.get(802)</expression-string>
+        <expression-string>fraglen</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>kmers.802</expression-string>
+        <expression-string>pos</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>known.get(&quot;aacgtgcg&quot;)</expression-string>
+        <expression-string>sma.indexOf(max)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -970,28 +1259,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logo/LogoOld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fraglen/FraglenEstimate.java" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logo/Logo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1003,39 +1275,6 @@
       </provider>
     </entry>
     <entry file="file:///tmp/2" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/BatchJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logo/LogoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/score/Score.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding>
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/MyUI.java" />
     <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/awt/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1051,36 +1290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/profile/NoPeakTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/filter/GroupKMers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1674">
-          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/LogoHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/awt/event/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1088,31 +1297,214 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/Gui.java">
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="43" />
+        <state relative-caret-position="304">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/Pdf.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/io/PrintStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="819" column="16" selection-start-line="819" selection-start-column="16" selection-end-line="819" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/javax/swing/JCheckBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="94" column="11" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
+          <folding>
+            <element signature="e#2700#2701#0" expanded="true" />
+            <element signature="e#2739#2740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/Histogram.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/awt/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="202" column="30" selection-start-line="202" selection-start-column="30" selection-end-line="202" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
+          <folding>
+            <element signature="e#3914#3915#0" expanded="true" />
+            <element signature="e#3960#3961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/filter/GroupKMersTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2736">
+          <caret line="157" column="103" selection-start-line="157" selection-start-column="103" selection-end-line="157" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile_test.bed.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scores_profile_gabpa.sam.bed.csv" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/profile/NoPeakTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/BatchJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/profile/ProfileLibTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/profile/ProfileTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/profile/ProfileLib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        <state relative-caret-position="288">
+          <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/profile/LibTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+        <state relative-caret-position="72">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/argparse4j/argparse4j/0.8.1/argparse4j-0.8.1.jar!/net/sourceforge/argparse4j/inf/ArgumentParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/score/ScoringTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/score/Scoring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9500#9501#0" expanded="true" />
+            <element signature="e#9538#9539#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/Gui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5922">
+          <caret line="358" column="12" selection-start-line="358" selection-start-column="12" selection-end-line="358" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/score/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#867#868#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logo/LogoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logo/Logo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1121,18 +1513,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/profile/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
+        <state relative-caret-position="226">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/score/Scoring.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/LogoHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+        <state relative-caret-position="216">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/filter/GroupKMers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logo/LogoOld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Guesser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

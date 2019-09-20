@@ -40,4 +40,6 @@ src/main/resources/
 src/test/java/
 target/classes/logo/LogoTest.class
 target/generated-sources/
-target/generated-test-sources/
+target/*
+*.iml
+.idea

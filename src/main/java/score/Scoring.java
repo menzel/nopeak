@@ -250,6 +250,7 @@ public class Scoring {
 
     public void writeToFile(String outPath) {
         Path path = Paths.get(outPath);
+        System.out.println("Writing scores to file: " + outPath);
 
         scores.sort(Comparator.comparing(Score::getHeight)); // sort by score
         Collections.reverse(scores);
