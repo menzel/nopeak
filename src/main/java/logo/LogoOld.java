@@ -65,8 +65,7 @@ public class LogoOld {
         }
     }
 
-    @Override
-    public String toString(){
+    public String pythonToString() {
 
         StringBuilder r = new StringBuilder("[");
 
@@ -86,16 +85,14 @@ public class LogoOld {
         return r.toString();
     }
 
-    public String otherToString(){
+    @Override
+    public String toString() {
         StringBuilder r = new StringBuilder();
 
-        r.append("a\tt\tg\tc\tn\n");
-
-        for(int j = 0; j < pwm.length; j++) {
-            r.append(j).append("\t");
-            for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < pwm.length; j++) {
                 r.append(pwm[j][i]);
-                r.append("\t");
+                r.append(" ");
             }
             r.append("\n");
         }
