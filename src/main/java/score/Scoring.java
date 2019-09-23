@@ -244,7 +244,7 @@ public class Scoring {
     public List<Score> getScores() {
 
         scores.sort(Comparator.comparing(Score::getScore)); // sort by score
-        Collections.reverse(scores);
+        //Collections.reverse(scores);
         return scores;
     }
 
@@ -258,7 +258,8 @@ public class Scoring {
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
 
             for(Score score: scores) {
-                writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+                if (score.getScore() < 0.6)
+                    writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
             }
 
         } catch (IOException e) {
