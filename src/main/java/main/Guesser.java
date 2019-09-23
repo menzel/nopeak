@@ -4,7 +4,6 @@ import filter.GroupKMers;
 import logo.LogoOld;
 import score.Score;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -13,44 +12,38 @@ class Guesser {
 
     Guesser(List<Score> scores) {
 
-        int basematch = (int) Math.ceil(scores.get(0).getQmer().length() / 3.0);
-        double score_cutoff = scores.stream().map(Score::getScore).mapToDouble(i -> i).skip((long) (scores.size() * 0.2)).findAny().getAsDouble();
-        int height_cutoff = (int) scores.stream().map(Score::getHeight).mapToDouble(i -> i).skip((long) (scores.size() * 0.5)).findAny().getAsDouble();
+        double a = 0.1;
+        double b = 0.9;
+        int basematch = (int) Math.ceil(scores.get(0).getQmer().length() / 2.0);
+        double score_cutoff = scores.stream().map(Score::getScore).mapToDouble(i -> i).sorted().skip((long) (scores.size() * a)).findAny().getAsDouble();
+        int height_cutoff = (int) scores.stream().map(Score::getHeight).mapToDouble(i -> i).sorted().skip((long) (scores.size() * b)).findAny().getAsDouble();
 
-        int max_height = (int) scores.stream().map(Score::getHeight).mapToDouble(i -> i).max().getAsDouble();
 
-        double best = 100;
 
-        for (double s = 0; s < 0.5; s += 0.1) { //scores
-            for (double h = max_height; h > (max_height/10.0); h -= max_height / 10.0) { //heights
-
-                double score = opt(scores, basematch, s, (int) h);
-
-                if (score < best && score > 0.1) {
-                    best = score;
-                    score_cutoff = s;
-                    height_cutoff = (int) h;
-                }
-
-            }
-        }
 
         Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
-        //System.out.println("Basematch: " + basematch + " score cutoff: " + score_cutoff + " height cutoff: " + height_cutoff);
 
-        if (groupedKmers.keySet().size() == 0) {
-            System.err.println("No kmers found for these parameters. Adjust score and height cutoff: " + score_cutoff + " " + height_cutoff);
+        while (groupedKmers.keySet().size() == 0) {
+            a += 0.1;
+            b -= 0.1;
+
+            score_cutoff = scores.stream().map(Score::getScore).mapToDouble(i -> i).sorted().skip((long) (scores.size() * a)).findAny().getAsDouble();
+            height_cutoff = (int) scores.stream().map(Score::getHeight).mapToDouble(i -> i).sorted().skip((long) (scores.size() * b)).findAny().getAsDouble();
+
+            groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
         }
 
+        Map<String, List<String>> finalGroupedKmers = groupedKmers;
         groupedKmers.keySet().forEach(base -> {
-            //System.out.print(ProfileLib.reverse_complement(base).toUpperCase());
-            //System.out.print("\t");
-            //System.out.println(groupedKmers.get(base).size());
+            System.out.print(base.toUpperCase());
+            System.out.print("\t");
+            System.out.println(finalGroupedKmers.get(base).size());
 
-            LogoOld logo = new LogoOld(groupedKmers.get(base));
+            LogoOld logo = new LogoOld(finalGroupedKmers.get(base));
 
             logo.reverse_complement();
-            System.out.println(Arrays.deepToString(logo.getPwm()).replace(" ", ""));
+            System.out.println(logo);
+            System.out.println("\n");
 
         });
     }
