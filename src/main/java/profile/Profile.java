@@ -241,6 +241,11 @@ public class Profile {
         public void run() {
             System.out.println("Working on " + chr);
 
+            if (readstarts_n == null || readstarts_p == null) {
+                System.err.println("Chromosome " + chr + " has no entries. NoPeak will ignore this chromosome");
+                return;
+            }
+
             if(readstarts_n.get(chr).length + readstarts_p.get(chr).length < 1)
                return;
             String seq = readChr(genomepath, chr);
