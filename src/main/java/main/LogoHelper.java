@@ -16,7 +16,7 @@ class LogoHelper {
 
         Map<String, List<Integer>> profiles_control = profile_c.getResult();
 
-        Scoring scoring = new Scoring(profiles_control, fraglen);
+        Scoring scoring = new Scoring(profiles_control, fraglen, profile_c.getReadcount());
         List<Score> scores = scoring.getScores();
 
         if (kmerOutputFile != null)
