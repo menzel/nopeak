@@ -1,5 +1,6 @@
 package score;
 
+import main.Main;
 import org.apache.commons.math3.stat.StatUtils;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 import profile.ProfileLib;
@@ -19,17 +20,25 @@ import java.util.stream.IntStream;
 public class Scoring {
 
     private List<Score> scores = new ArrayList<>();
-    private static int smooth_cutoff = 50;
+    private static int smooth_cutoff;
 
 
     /**
      * Scores a given map of profiles for sample and control.
      * Updates the scores variable with the result
-     *
-     * @param profiles_sample - profiles for all sample kmers
+     *  @param profiles_sample - profiles for all sample kmers
      * @param fraglen         - fragment length of sample reads
+     * @param readcount
      */
-    public Scoring(Map<String, List<Integer>> profiles_sample, int fraglen) {
+    public Scoring(Map<String, List<Integer>> profiles_sample, int fraglen, long readcount) {
+
+        if (readcount > 300000 || Main.getFilter() == 1)
+            smooth_cutoff = 50;
+        else if (readcount > 100000)
+            smooth_cutoff = 20;
+        else
+            smooth_cutoff = 5;
+
 
         for (String qmer : profiles_sample.keySet()) {
 
@@ -127,12 +136,10 @@ public class Scoring {
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
 
-        /*
         //check min near max
-        if(Math.abs(sma.indexOf(min) - sma.indexOf(max)) < fraglen){
+        if (Main.getFilter() == 3 && Math.abs(sma.indexOf(Collections.min(sma)) - sma.indexOf(max)) < fraglen * 1.5) {
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
-         */
 
         double mean = sma.stream().sorted().skip(sma.size() / 2).findFirst().get();
         if (mean - min > (max - mean) / 2) {
@@ -140,7 +147,7 @@ public class Scoring {
         }
 
         // check smoothness
-        if (smooth_fc(sma) < smooth_cutoff) {
+        if (Main.getFilter() >= 2 && smooth_fc(sma) < smooth_cutoff) {
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
 
@@ -250,7 +257,7 @@ public class Scoring {
 
     public void writeToFile(String outPath) {
         Path path = Paths.get(outPath);
-        System.out.println("Writing scores to file: " + outPath);
+        System.err.println("Writing scores to file: " + outPath);
 
         scores.sort(Comparator.comparing(Score::getHeight)); // sort by score
         Collections.reverse(scores);
@@ -258,8 +265,16 @@ public class Scoring {
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
 
             for(Score score: scores) {
-                if (score.getScore() < 0.6)
-                    writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+
+                if (Main.getFilter() == 1)
+                    if (score.getScore() < 0.9)
+                        writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+                if (Main.getFilter() == 2)
+                    if (score.getScore() < 0.7)
+                        writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+                if (Main.getFilter() == 3)
+                    if (score.getScore() < 0.4)
+                        writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
             }
 
         } catch (IOException e) {

@@ -9,6 +9,8 @@ import static net.sourceforge.argparse4j.impl.Arguments.storeTrue;
 
 public class Main {
 
+    private static int filter = 1; // filter strength 1,2 or 3 where 1 is loose 2 is normal and 3 is strict
+
     public static void main(String[] args) {
 
         long startTime = System.currentTimeMillis();
@@ -38,11 +40,22 @@ public class Main {
         parserLogo.addArgument("-f", "--fraglen").type(Integer.class).help("Estimated fragment length. You can use the estimateFraglen.jar tool").action(store()).required(true);
         parserLogo.addArgument("--gui").help("Show graphical interface to adjust profile filters").action(storeTrue());
         parserLogo.addArgument("--export-kmers").help("Exports the k-mer list to the given file").action(store());
+        parserLogo.addArgument("--loose").help("Apply a loose filtering for profile shape.").action(storeTrue());
+        parserLogo.addArgument("--strict").help("Apply a strict filtering for profile shape.").action(storeTrue());
 
         try {
             input = parser.parseArgs(args);
         } catch (ArgumentParserException e) {
             parser.handleError(e);
+        }
+
+
+        if (input.getBoolean("loose") && (input.getBoolean("strict"))) {
+            System.err.println("Please only set the filter to loose or strict. Filter value will be ignored");
+        } else if (input.getBoolean("strict")) {
+            filter = 3;
+        } else if (input.getBoolean("loose")) {
+            filter = 1;
         }
 
         ////////////////////
@@ -77,5 +90,10 @@ public class Main {
                 LogoHelper.logo(input.getString("control"), input.getString("signal"), fraglen, show_gui, input.getString("export_kmers"));
             }
         }
+    }
+
+
+    public static int getFilter() {
+        return filter;
     }
 }

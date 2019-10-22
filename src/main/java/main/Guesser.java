@@ -4,21 +4,21 @@ import filter.GroupKMers;
 import logo.LogoOld;
 import score.Score;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class Guesser {
 
     Guesser(List<Score> scores) {
 
+        if (scores.size() == 0) {
+            System.err.println("No valid profiles found. Please checke the profile shape using the plot_profile.py tool for an expected K-mer and try using the `--filter loose` option.");
+        }
+
         double a = 0.1;
-        double b = 0.9;
+        double b = 0.95;
         int basematch = (int) Math.ceil(scores.get(0).getQmer().length() / 2.0);
         double score_cutoff = scores.stream().map(Score::getScore).mapToDouble(i -> i).sorted().skip((long) (scores.size() * a)).findAny().getAsDouble();
         int height_cutoff = (int) scores.stream().map(Score::getHeight).mapToDouble(i -> i).sorted().skip((long) (scores.size() * b)).findAny().getAsDouble();
-
-
 
 
         Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
@@ -34,18 +34,33 @@ class Guesser {
         }
 
         Map<String, List<String>> finalGroupedKmers = groupedKmers;
-        groupedKmers.keySet().forEach(base -> {
-            System.out.print(base.toUpperCase());
+
+        List<String> keys = new ArrayList<>(groupedKmers.keySet());
+
+        Map<String, List<String>> finalGroupedKmers1 = groupedKmers;
+        keys.sort(Comparator.comparingInt(o -> finalGroupedKmers1.get(o).size()));
+        Collections.reverse(keys);
+
+        //System.out.println("Basematch: " + basematch + " score cutoff: " + score_cutoff + " height cutoff: " + height_cutoff);
+
+        LogoOld top = new LogoOld(groupedKmers.get(keys.get(0)));
+        top.reverse_complement();
+        System.out.println(top);
+
+
+        /*
+        keys.forEach(base -> {
+            System.out.print("> " + base.toUpperCase());
             System.out.print("\t");
             System.out.println(finalGroupedKmers.get(base).size());
 
             LogoOld logo = new LogoOld(finalGroupedKmers.get(base));
 
             logo.reverse_complement();
-            System.out.println(logo);
-            System.out.println("\n");
-
+            System.out.print(logo);
+            System.out.print();
         });
+         */
     }
 
 
