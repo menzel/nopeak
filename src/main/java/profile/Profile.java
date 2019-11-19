@@ -241,7 +241,7 @@ public class Profile {
         public void run() {
             System.out.println("Working on " + chr);
 
-            if (readstarts_n == null || readstarts_p == null) {
+            if (readstarts_n.get(chr) == null || readstarts_p.get(chr) == null) {
                 System.err.println("Chromosome " + chr + " has no entries. NoPeak will ignore this chromosome");
                 return;
             }
