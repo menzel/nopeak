@@ -13,19 +13,17 @@ The NoPeak Software uses the integration profile of k-mers based on mapped reads
 
 ## Prepare Reads
 
-* Mapping with bowtie2: bowtie2 --end-to-end --sensitive -p 4 -x hg19 -U ENCFF000XBO.fastq -S cebpb.sam
-(Take a look at the bowtie2 manual for further reference)
+* Mapping with Bowtie 2: bowtie2 --sensitive -p 4 -x hg19 -U ENCFF000XBO.fastq -S cebpb.sam
+(Take a look at the Bowtie 2 manual for further reference)
 
-* Create a .bed-file:
-
+* Create a .bed-file: 
     * samtools view -bS cebpb.sam > cebpb.bam
-    * bamToBed -i cebpb.bam > tmp.bed
-    * sort -k1,1 -k2n tmp.bed > cebpb.bed 
+    * bamToBed -i cebpb.bam | sort -k1,1 -k2n tmp.bed > cebpb.bed 
 
 
 ## Create profiles:
 
-java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa -k 8
+java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa [-k 8]
 
 * Where reads.bed is the file with the mapped reads that should be analyzed, e.g.:
 
@@ -36,10 +34,10 @@ java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa -k 8
 
 * hg19.fa is the human genome as .fasta-file
 
-* -k k-mer length: Sets the length of the k-mers to find. The default value is 8 bases.
+* -k k-mer length: Can set the length of the k-mers to find. The default value is 8 bases.
 
 
-## Create motif 
+## Export k-mers and create sequence logos  
 
 * Example:
 java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 100 [--export-kmers file]
