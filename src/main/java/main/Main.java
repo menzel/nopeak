@@ -49,14 +49,14 @@ public class Main {
             parser.handleError(e);
         }
 
-
-        if (input.getBoolean("loose") && (input.getBoolean("strict"))) {
-            System.err.println("Please only set the filter to loose or strict. Filter value will be ignored");
-        } else if (input.getBoolean("strict")) {
-            filter = 3;
-        } else if (input.getBoolean("loose")) {
-            filter = 1;
-        }
+        if (input.getBoolean("loose") != null && (input.getBoolean("strict") != null))
+            if (input.getBoolean("loose") && (input.getBoolean("strict"))) {
+                System.err.println("Please only set the filter to loose or strict. Filter value will be ignored");
+            } else if (input.getBoolean("strict")) {
+                filter = 3;
+            } else if (input.getBoolean("loose")) {
+                filter = 1;
+            }
 
         ////////////////////
         // Build profiles
