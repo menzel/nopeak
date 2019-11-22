@@ -72,7 +72,7 @@ public class Profile {
 
         Runnable status = () -> {
             while(service.getActiveCount() > 0) {
-                System.out.println(service.getCompletedTaskCount() + " of 24 chromosomes are finished. " + service.getActiveCount() + " threads are running");
+                System.out.println(service.getCompletedTaskCount() + " of 24 chromosomes are finished.");
                 try {
                     Thread.sleep(1000 * 60);
                 } catch (InterruptedException e) {
@@ -80,7 +80,6 @@ public class Profile {
                 }
             }
         };
-
 
         Map<String, List<Integer>> profiles_p = Collections.synchronizedMap(new TreeMap<>());
         Map<String, List<Integer>> profiles_n = Collections.synchronizedMap(new TreeMap<>());
@@ -239,7 +238,7 @@ public class Profile {
 
         @Override
         public void run() {
-            System.out.println("Working on " + chr);
+            //System.out.println("Working on " + chr);
 
             if (readstarts_n.get(chr) == null || readstarts_p.get(chr) == null) {
                 System.err.println("Chromosome " + chr + " has no entries. NoPeak will ignore this chromosome");
