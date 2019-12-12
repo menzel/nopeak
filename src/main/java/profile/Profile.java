@@ -199,7 +199,7 @@ public class Profile {
         System.out.println("Wrote profiles to " + path.toAbsolutePath());
     }
 
-    int getReadcount() {
+    public int getReadcount() {
         return this.readcount;
     }
 
