@@ -53,3 +53,15 @@ java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 1
 * fragment length: Estimated fragment length. You can use the included estimate_fraglen.jar tool or any other estimation tool.  
 
 * --export-kers export k-mers with scores in an intermediate step. Scores are the profile heights. Absolute height if there are no controls, with controls the scores are relative values.
+
+# Utilities
+
+### plot_profile.py
+
+Plots a given profile produced by NoPeak PROFILE. Which profile to plot is set by a regex (e.g. AA(G|C)T+). 
+
+
+### combine_profiles.py
+
+Combines two profile files as produced by NoPeak PROFILE by adding values for each qmer. Prints the resulting profile to stdout.
+Use with caution because the profiles are only normalized over read count and could have problems with profiles that have different fragment lengths.
