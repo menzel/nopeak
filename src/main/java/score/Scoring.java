@@ -28,7 +28,7 @@ public class Scoring {
      * Updates the scores variable with the result
      *  @param profiles_sample - profiles for all sample kmers
      * @param fraglen         - fragment length of sample reads
-     * @param readcount
+     * @param readcount - count of reads used to build the profiles
      */
     public Scoring(Map<String, List<Integer>> profiles_sample, int fraglen, long readcount) {
 
@@ -58,8 +58,15 @@ public class Scoring {
      * @param profiles_sample - profiles for all sample kmers
      * @param profiles_control - profiles for all control kmers
      * @param fraglen - fragment length of sample reads
+     * @param readcount - count of reads used to build the sample profiles
      */
-    public Scoring(Map<String, List<Integer>> profiles_sample, Map<String, List<Integer>> profiles_control, int fraglen) {
+    public Scoring(Map<String, List<Integer>> profiles_sample, Map<String, List<Integer>> profiles_control, int fraglen, long readcount) {
+        if (readcount > 300000 || Main.getFilter() == 1)
+            smooth_cutoff = 50;
+        else if (readcount > 100000)
+            smooth_cutoff = 20;
+        else
+            smooth_cutoff = 5;
 
 
         String some_s = profiles_sample.entrySet().iterator().next().getKey();
@@ -86,13 +93,30 @@ public class Scoring {
             }
 
 
-            //TODO check profile
             Tuple<Double, Double> score = calcScore(profiles_sample.get(qmer), profiles_control.get(qmer_control), fraglen);
 
             if(score != Tuple.EMPTY_DOUBLE_TUPLE && score.getFirst() > 0)
                 scores.add(new Score(qmer, score.getFirst(), score.getSecond()));
         }
+
+
+        scores.sort(Comparator.comparing(Score::getScore));
+
+        // check if top profiles are still intact, rerun the profiles without control otherwise
+        // test: any of the top three profiles should be above 2
+        if (scores.subList(0, 3).stream().anyMatch(top -> top.getScore() < 2)) {
+            scores = new ArrayList<>();
+
+            for (String qmer : profiles_sample.keySet()) {
+
+                Tuple<Double, Double> score = calcScore(profiles_sample.get(qmer), null, fraglen);
+
+                if (score != Tuple.EMPTY_DOUBLE_TUPLE && score.getFirst() > 0)
+                    scores.add(new Score(qmer, score.getFirst(), score.getSecond()));
+            }
+        }
     }
+
 
     /**
      * Calculates the score for a given sample profile and a control profile.
@@ -205,6 +229,7 @@ public class Scoring {
 
         return profile_sample_controlled;
     }
+
 
     private static double smooth_fc(List<Double> sma) {
         int d = 20;
