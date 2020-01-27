@@ -68,15 +68,18 @@ public class Scoring {
         else
             smooth_cutoff = 5;
 
+        try {
+            String some_s = profiles_sample.entrySet().iterator().next().getKey();
+            String some_c = profiles_control.entrySet().iterator().next().getKey();
 
-        String some_s = profiles_sample.entrySet().iterator().next().getKey();
-        String some_c = profiles_control.entrySet().iterator().next().getKey();
+            if (some_c.length() != some_s.length() ||
+                    profiles_control.get(some_c).size() != profiles_sample.get(some_s).size()){
+                System.err.println("K-mer length of profile and control or radius does not match. The results will not look good.");
+            }
 
-        if(some_c.length() != some_s.length() ||
-                profiles_control.get(some_c).size() != profiles_sample.get(some_s).size()){
-            System.err.println("K-mer length of profile and control or radius does not match. The results will not look good.");
+        } catch (Exception e) {
+            System.err.println("Missing content in control or signal profile file. Please check if the profile files are build correctly.");
         }
-
 
         for(String qmer: profiles_sample.keySet()){
 
@@ -99,12 +102,12 @@ public class Scoring {
                 scores.add(new Score(qmer, score.getFirst(), score.getSecond()));
         }
 
-
-        scores.sort(Comparator.comparing(Score::getScore));
+        scores.sort(Comparator.comparing(Score::getHeight));
+        Collections.reverse(scores);
 
         // check if top profiles are still intact, rerun the profiles without control otherwise
-        // test: any of the top three profiles should be above 2
-        if (scores.subList(0, 3).stream().anyMatch(top -> top.getScore() < 2)) {
+        // test: all of the top three profiles (bad scored ones ignored) are be below 5
+        if (scores.stream().filter(s -> s.getScore() < 0.9).limit(3).allMatch(top -> top.getHeight() < 2)) {
             scores = new ArrayList<>();
 
             for (String qmer : profiles_sample.keySet()) {
@@ -115,6 +118,7 @@ public class Scoring {
                     scores.add(new Score(qmer, score.getFirst(), score.getSecond()));
             }
         }
+
     }
 
 
@@ -276,7 +280,7 @@ public class Scoring {
     public List<Score> getScores() {
 
         scores.sort(Comparator.comparing(Score::getScore)); // sort by score
-        //Collections.reverse(scores);
+        Collections.reverse(scores);
         return scores;
     }
 
