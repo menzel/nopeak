@@ -36,30 +36,15 @@ class Guesser {
             groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
         }
 
-        Map<String, List<String>> finalGroupedKmers = groupedKmers;
-
         List<String> keys = new ArrayList<>(groupedKmers.keySet());
 
-        Map<String, List<String>> finalGroupedKmers1 = groupedKmers;
-        keys.sort(Comparator.comparingInt(o -> finalGroupedKmers1.get(o).size()));
+        Map<String, List<String>> finalGroupedKmers = groupedKmers;
+        keys.sort(Comparator.comparingInt(o -> finalGroupedKmers.get(o).size()));
         Collections.reverse(keys);
-
-        //System.out.println("Basematch: " + basematch + " score cutoff: " + score_cutoff + " height cutoff: " + height_cutoff);
 
         Logo top = new Logo(groupedKmers.get(keys.get(0)));
         top.reverse_complement();
         System.out.println(top);
-    }
-
-
-    private double opt(List<Score> scores, int basematch, double score_cutoff, int height_cutoff) {
-        Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
-        //String base = groupedKmers.entrySet().stream().limit(1).map(Map.Entry::getKey).collect(Collectors.joining());
-
-        double score = groupedKmers.entrySet().stream().limit(1).map(k -> scorePwm(new Logo(k.getValue()).getPwmWithoutN())).findAny().orElse(100.0);
-        //System.out.println(ProfileLib.reverse_complement(base).toUpperCase() +  "\t" + score);
-
-        return score;
     }
 
     /**

@@ -318,9 +318,4 @@ public class Scoring {
             e.printStackTrace();
         }
     }
-
-    public static void setSmooth_cutoff(int cutoff) {
-        smooth_cutoff = cutoff;
-    }
-
 }

@@ -1,16 +1,10 @@
 package profile;
 
-import org.junit.Before;
 import org.testng.annotations.Test;
 
 import java.util.*;
 
 public class NoPeakTest {
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
 
     @Test
     public void testWrapper() throws Exception {
@@ -18,7 +12,6 @@ public class NoPeakTest {
         String seq = "tgtaccacattttctctatccagtcatctgttgatggacatttaggtttc";
 
         Map<String, List<Integer>> profiles_p = Collections.synchronizedMap(new TreeMap<>());
-        Map<String, List<Integer>> profiles_n = Collections.synchronizedMap(new TreeMap<>());
 
         Map<String, long[]> readstarts_p = new HashMap<>();
 

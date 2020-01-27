@@ -12,16 +12,9 @@ public class Logo {
 
     private int[][] pwm; // ATGCN
 
-    private static Map<Character, Integer> mapping = new TreeMap<>();
+    private static final Map<Character, Integer> mapping = new TreeMap<>();
 
     static {
-        /*
-        mapping.put('a', 3);
-        mapping.put('t', 0);
-        mapping.put('g', 1);
-        mapping.put('c', 2);
-        mapping.put('n', 4);
-         */
 
         mapping.put('a', 0);
         mapping.put('t', 3);
@@ -65,33 +58,13 @@ public class Logo {
         }
     }
 
-    public String pythonToString() {
-
-        StringBuilder r = new StringBuilder("[");
-
-        for (int[] aPwm : pwm) {
-            r.append("[");
-
-            for (int i = 0; i < 5; i++) {
-                r.append(aPwm[i]);
-                r.append(",");
-            }
-
-            r.append("],");
-        }
-
-        r.append("]");
-
-        return r.toString();
-    }
-
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder();
 
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < pwm.length; j++) {
-                r.append(pwm[j][i]);
+            for (int[] ints : pwm) {
+                r.append(ints[i]);
                 r.append(" ");
             }
             r.append("\n");

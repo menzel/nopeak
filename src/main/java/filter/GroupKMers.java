@@ -109,7 +109,7 @@ public class GroupKMers {
      *
      * @return shift and score for the top scoring shift between the k-mers
      */
-    public static Tuple<Integer, Integer> getshift(String qmer, String base) {
+    private static Tuple<Integer, Integer> getshift(String qmer, String base) {
         int l = qmer.length();
         int high = 0;
         int hshift = 0;

@@ -19,22 +19,22 @@ public class ProfileLib {
      * @return reverse complement of given sequence in lowercase
      */
     public static String reverse_complement(String key) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         key = key.toLowerCase();
 
         for(int i = key.length() - 1; i >= 0; --i)
-            result += key.charAt(i);
+            result.append(key.charAt(i));
 
-        result = result.replace("a", "x");
-        result = result.replace("t", "a");
-        result = result.replace("x", "t");
+        result = new StringBuilder(result.toString().replace("a", "x"));
+        result = new StringBuilder(result.toString().replace("t", "a"));
+        result = new StringBuilder(result.toString().replace("x", "t"));
 
-        result = result.replace("g", "x");
-        result = result.replace("c", "g");
-        result = result.replace("x", "c");
+        result = new StringBuilder(result.toString().replace("g", "x"));
+        result = new StringBuilder(result.toString().replace("c", "g"));
+        result = new StringBuilder(result.toString().replace("x", "c"));
 
-        return result;
+        return result.toString();
     }
 
     public static Tuple<List<Integer>, List<Integer>> normalize(List<Integer> profile_control, List<Integer> profile_sample, double rc, double rs) {

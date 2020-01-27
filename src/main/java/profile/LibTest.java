@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LibTest {
     private ProfileLib lib;
@@ -91,7 +91,7 @@ public class LibTest {
 
         Map<String, List<Integer>> second = new HashMap<>();
         second.put("aaaa", Arrays.asList(4,3,2,1));
-        second.put(lib.reverse_complement("actg"), Arrays.asList(2,2,2,2));
+        second.put(ProfileLib.reverse_complement("actg"), Arrays.asList(2, 2, 2, 2));
 
         Map<String, List<Integer>> result = lib.merge_fw_and_bw(first, second);
 

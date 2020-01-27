@@ -24,13 +24,13 @@ public class Profile {
 
     private String genomepath;
 
-    private Map<String, long[]> readstarts_p = new TreeMap<>();
-    private Map<String, long[]> readstarts_n = new TreeMap<>();
+    private final Map<String, long[]> readstarts_p = new TreeMap<>();
+    private final Map<String, long[]> readstarts_n = new TreeMap<>();
 
     private int q = 8;
     private int radius;
 
-    private ProfileLib lib = new ProfileLib();
+    private final ProfileLib lib = new ProfileLib();
 
     private int readcount = 0;
     private String readPath;
@@ -218,8 +218,8 @@ public class Profile {
         private final Map<String, List<Integer>> profiles_p;
         private final Map<String, List<Integer>> profiles_n;
 
-        private Map<String, long[]> readstarts_n;
-        private Map<String, long[]> readstarts_p;
+        private final Map<String, long[]> readstarts_n;
+        private final Map<String, long[]> readstarts_p;
 
 
         /**

@@ -43,7 +43,7 @@ class LogoHelper {
     /**
      * Creates a logo from a given path to a profile
      *
-     * @param path_sample - path to control profiles
+     * @param path_control - path to control profiles
      * @param path_sample - path to profile file
      * @param fraglen - fragment length from estimateFraglen.jar program
      * @param gui - show GUI after calculation. If 'false' height and score cutoffs are estimated

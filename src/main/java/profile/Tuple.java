@@ -4,7 +4,7 @@ public class Tuple<A,T>{
 
     private final A first;
     private final T second;
-    public static Tuple<Double, Double> EMPTY_DOUBLE_TUPLE;
+    public static final Tuple<Double, Double> EMPTY_DOUBLE_TUPLE;
     public static Tuple EMPTY_TUPLE;
 
     static {
