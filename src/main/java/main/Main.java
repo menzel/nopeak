@@ -29,7 +29,7 @@ public class Main {
 
         parserProfile.addArgument("--reads").help("Path to reads").action(store()).required(true);
         parserProfile.addArgument("-g", "--genome").help("Path to folder with the chromosomes as fasta files.").action(store()).required(true);
-        parserProfile.addArgument("-k", "--k-mer").dest("k").type(Integer.class).help("Size of K-mers to identify. Default: 8").setDefault(8).action(store());
+        parserProfile.addArgument("-k", "--k-mer").dest("k").type(Integer.class).help("Size of k for k-mers to identify. Default: 8").setDefault(8).action(store());
         parserProfile.addArgument("-t", "--threads").type(Integer.class).help("Number of threads. Maximum is 24. Default: 2").setDefault(2).action(store());
         parserProfile.addArgument("-r", "--radius").type(Integer.class).help("Radius to scan around each read. Default: 500").setDefault(500).action(store());
 
