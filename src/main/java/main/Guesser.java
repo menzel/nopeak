@@ -1,7 +1,7 @@
 package main;
 
 import filter.GroupKMers;
-import logo.LogoOld;
+import logo.Logo;
 import score.Score;
 
 import java.util.*;
@@ -46,7 +46,7 @@ class Guesser {
 
         //System.out.println("Basematch: " + basematch + " score cutoff: " + score_cutoff + " height cutoff: " + height_cutoff);
 
-        LogoOld top = new LogoOld(groupedKmers.get(keys.get(0)));
+        Logo top = new Logo(groupedKmers.get(keys.get(0)));
         top.reverse_complement();
         System.out.println(top);
     }
@@ -56,7 +56,7 @@ class Guesser {
         Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
         //String base = groupedKmers.entrySet().stream().limit(1).map(Map.Entry::getKey).collect(Collectors.joining());
 
-        double score = groupedKmers.entrySet().stream().limit(1).map(k -> scorePwm(new LogoOld(k.getValue()).getPwmWithoutN())).findAny().orElse(100.0);
+        double score = groupedKmers.entrySet().stream().limit(1).map(k -> scorePwm(new Logo(k.getValue()).getPwmWithoutN())).findAny().orElse(100.0);
         //System.out.println(ProfileLib.reverse_complement(base).toUpperCase() +  "\t" + score);
 
         return score;

@@ -1,7 +1,7 @@
 package gui;
 
 import filter.GroupKMers;
-import logo.LogoOld;
+import logo.Logo;
 import profile.ProfileLib;
 import score.Score;
 
@@ -75,7 +75,7 @@ public class Gui extends Frame {
 
 
                 groupedKmers.keySet().forEach(base -> {
-                    LogoOld logo = new LogoOld(base, scores);
+                    Logo logo = new Logo(base, scores);
 
                     System.out.println("=====");
                     System.out.println("-----");
@@ -256,7 +256,7 @@ public class Gui extends Frame {
             System.out.println("Basematch: " + basematch + " score cutoff: " + score_cutoff + " height cutoff: " + height_cutoff);
 
             for (String s : groupedKmers.keySet()) {
-                LogoOld logo = new LogoOld(groupedKmers.get(s));
+                Logo logo = new Logo(groupedKmers.get(s));
 
                 if(!reverse_complement.isSelected())
                     logo.reverse_complement();

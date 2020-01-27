@@ -8,8 +8,19 @@ import score.Scoring;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Helper class for Logos.
+ */
 class LogoHelper {
 
+    /**
+     * Creates a logo from a given path to a profile
+     *
+     * @param path_sample    - path to profile file
+     * @param fraglen        - fragment length from estimateFraglen.jar program
+     * @param gui            - show GUI after calculation. If 'false' height and score cutoffs are estimated
+     * @param kmerOutputFile - if not null, a file containing the k-mer to score list will be written to this path
+     */
     static void logo(String path_sample, int fraglen, boolean gui, String kmerOutputFile) {
 
         Profile profile = new Profile(path_sample);
@@ -22,7 +33,6 @@ class LogoHelper {
         if (kmerOutputFile != null)
             scoring.writeToFile(kmerOutputFile);
 
-        //prints the pwms
         if (gui) {
             new Gui(scores);
         } else {
@@ -30,6 +40,15 @@ class LogoHelper {
         }
     }
 
+    /**
+     * Creates a logo from a given path to a profile
+     *
+     * @param path_sample - path to control profiles
+     * @param path_sample - path to profile file
+     * @param fraglen - fragment length from estimateFraglen.jar program
+     * @param gui - show GUI after calculation. If 'false' height and score cutoffs are estimated
+     * @param kmerOutputFile - if not null, a file containing the k-mer to score list will be written to this path
+     */
     static void logo(String path_control, String path_sample, int fraglen, boolean gui, String kmerOutputFile) {
 
         ////////////////////
@@ -50,11 +69,10 @@ class LogoHelper {
         if (kmerOutputFile != null)
             scoring.writeToFile(kmerOutputFile);
 
-        //prints the pwms
         if (gui) {
-            Gui g = new Gui(scores);
+            new Gui(scores);
         } else {
-            Guesser guesser = new Guesser(scores);
+            new Guesser(scores);
         }
     }
 }

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-public class LogoOld {
+public class Logo {
 
     private int[][] pwm; // ATGCN
 
@@ -30,7 +30,7 @@ public class LogoOld {
         mapping.put('n', 4);
     }
 
-    public LogoOld(List<String> kmers) {
+    public Logo(List<String> kmers) {
 
         pwm = new int[kmers.get(0).length()][5];
 
@@ -45,7 +45,7 @@ public class LogoOld {
     }
 
 
-    public LogoOld(String base, List<Score> kmers) {
+    public Logo(String base, List<Score> kmers) {
         base = base.replaceAll("n", "");
 
         List<Character> bases = new ArrayList<>(mapping.keySet());

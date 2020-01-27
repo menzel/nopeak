@@ -5,7 +5,7 @@ import score.Score;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class GroupKMersTest {
 
@@ -22,7 +22,7 @@ public class GroupKMersTest {
 
         input.add(new Score("ccaa", 0.6, 0)); // will be deleted
 
-        Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(input, 3, 1.0, Integer.MAX_VALUE);
+        Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(input, 3, 1.0, Integer.MIN_VALUE);
 
         Map<String, List<String>> expected = new TreeMap<>();
         expected.put("nnnnaattnnnn", Arrays.asList("nnnnaattnnnn", "nnnnaatcnnnn", "nnnaaatnnnnn"));
@@ -155,8 +155,9 @@ public class GroupKMersTest {
             new Score("cgggtttc", 0.5997451837158875, 1.7002241618620264),
             new Score("cggaagca", 0.5997559947903023, 2.6231795295327696));
 
-        Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, 4, 0.6, Integer.MAX_VALUE);
+        Map<String, List<String>> groupedKmers = GroupKMers.groupKMers(scores, 4, 0.6, Integer.MIN_VALUE);
 
-        assertEquals(3, groupedKmers.keySet().size());
+        System.out.println(groupedKmers.toString());
+        assertEquals(6, groupedKmers.keySet().size());
     }
 }

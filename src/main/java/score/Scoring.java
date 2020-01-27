@@ -209,8 +209,15 @@ public class Scoring {
         }
 
         // border mean normalization
-        double mean_control_border = profile_control.stream().skip(profile_control.size() - 100).sorted().skip(50).findFirst().get();
-        double mean_signal_border = profile_sample.stream().skip(profile_sample.size() - 100).sorted().skip(50).findFirst().get();
+
+        double mean_control_border;
+        double mean_signal_border;
+
+        int skip_c = (profile_control.size() - profile_control.size() / 5) / 2;
+        int skip_s = (profile_sample.size() - profile_sample.size() / 5) / 2;
+        mean_control_border = profile_control.stream().skip(profile_control.size() - profile_control.size() / 5).sorted().skip(skip_c).findFirst().get();
+        mean_signal_border = profile_sample.stream().skip(profile_sample.size() - profile_sample.size() / 2).sorted().skip(skip_s).findFirst().get();
+
         double factor_c, factor_s;
 
         if (mean_control_border > mean_signal_border) {
