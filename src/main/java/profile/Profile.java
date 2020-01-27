@@ -154,6 +154,11 @@ public class Profile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        if (result.size() == 0) {
+            System.err.println("No profiles in file " + path_control);
+            System.err.println("Please check if the files were build correctly.");
+        }
     }
 
     public Map<String, List<Integer>> getResult() {
