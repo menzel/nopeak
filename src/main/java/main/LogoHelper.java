@@ -24,9 +24,9 @@ class LogoHelper {
 
         //prints the pwms
         if (gui) {
-            Gui g = new Gui(scores);
+            new Gui(scores);
         } else {
-            Guesser guesser = new Guesser(scores);
+            new Guesser(scores);
         }
     }
 

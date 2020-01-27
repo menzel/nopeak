@@ -2,19 +2,22 @@ package score;
 
 import java.util.Objects;
 
+/**
+ * Container class to store score k-mer to score information
+ */
 public class Score {
-    private final String qmer;
+    private final String kmer;
     private final double score;
     private final double height;
 
-    public Score(String qmer, double score, double height) {
-        this.qmer = qmer;
+    public Score(String kmer, double score, double height) {
+        this.kmer = kmer;
         this.score = score;
         this.height = height;
     }
 
-    public String getQmer() {
-        return qmer;
+    public String getKmer() {
+        return kmer;
     }
 
     public double getScore() {
@@ -25,7 +28,7 @@ public class Score {
 
     @Override
     public String toString() {
-        return qmer + "\t" + score;
+        return kmer + "\t" + score;
     }
 
     public double getHeight() {
@@ -37,11 +40,11 @@ public class Score {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Score score = (Score) o;
-        return Objects.equals(qmer, score.qmer);
+        return Objects.equals(kmer, score.kmer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(qmer);
+        return Objects.hash(kmer);
     }
 }

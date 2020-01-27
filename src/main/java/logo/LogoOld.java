@@ -49,7 +49,7 @@ public class LogoOld {
         base = base.replaceAll("n", "");
 
         List<Character> bases = new ArrayList<>(mapping.keySet());
-        Map<String, Integer> known = kmers.stream().collect(Collectors.toMap(Score::getQmer, s -> (int) (s.getHeight())));
+        Map<String, Integer> known = kmers.stream().collect(Collectors.toMap(Score::getKmer, s -> (int) (s.getHeight())));
         pwm = new int[base.length()][5];
 
         for (int i = 0; i < base.length(); i++) {

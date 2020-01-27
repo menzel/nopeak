@@ -21,6 +21,9 @@ import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * User interface class to test results of custom score and height cutoff values
+ */
 public class Gui extends Frame {
 
     private int sliderwidth;
@@ -52,7 +55,7 @@ public class Gui extends Frame {
         JFrame f = new JFrame("NoPeak");
         f.setSize(900, 700);
 
-        f.addWindowListener( new WindowAdapter() {
+        f.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
 
@@ -65,24 +68,23 @@ public class Gui extends Frame {
                 });
 
 
+                groupedKmers.keySet().forEach(base -> {
+                    System.out.println(base.toUpperCase());
+                    System.out.println(groupedKmers.get(base).size());
+                });
 
-            groupedKmers.keySet().forEach(base -> {
-                System.out.println(base.toUpperCase());
-                System.out.println(groupedKmers.get(base).size());
-            });
 
+                groupedKmers.keySet().forEach(base -> {
+                    LogoOld logo = new LogoOld(base, scores);
 
-            groupedKmers.keySet().forEach(base -> {
-                LogoOld logo = new LogoOld(base, scores);
-
-                System.out.println("=====");
-                System.out.println("-----");
-                System.out.println(base);
-                System.out.println(logo);
-                System.out.println("-----");
-                groupedKmers.get(base).forEach(System.out::println);
-                System.out.println("=====");
-            });
+                    System.out.println("=====");
+                    System.out.println("-----");
+                    System.out.println(base);
+                    System.out.println(logo);
+                    System.out.println("-----");
+                    groupedKmers.get(base).forEach(System.out::println);
+                    System.out.println("=====");
+                });
 
 
             }
@@ -195,7 +197,6 @@ public class Gui extends Frame {
         buttons.add(basematch_slider);
 
 
-
         // Input expected
         JLabel inputlabel = new JLabel("Filter kmers:");
         JTextField input = new JTextField();
@@ -214,6 +215,7 @@ public class Gui extends Frame {
                 }
                 update();
             }
+
             @Override
             public void insertUpdate(DocumentEvent e) {
                 updatecol();
@@ -332,31 +334,32 @@ public class Gui extends Frame {
             }
 
         } else for (char letter: chars){
-        //shift
-        if (tmp.length - 1 >= 0) System.arraycopy(tmp, 1, tmp, 0, tmp.length - 1);
-        tmp[tmp.length-1] = letter;
+            //shift
+            if (tmp.length - 1 >= 0) System.arraycopy(tmp, 1, tmp, 0, tmp.length - 1);
+            tmp[tmp.length-1] = letter;
 
-        if(Arrays.equals(tmp, filter.toCharArray()) || Arrays.equals(tmp, new StringBuilder(filter).reverse().toString().toCharArray()) ){
-            for(int i = pos - filter.length() + 1; i < pos +1; i++){
-                char l2 =  chars[i];
+            if(Arrays.equals(tmp, filter.toCharArray()) || Arrays.equals(tmp, new StringBuilder(filter).reverse().toString().toCharArray()) ){
+                for(int i = pos - filter.length() + 1; i < pos +1; i++){
+                    char l2 =  chars[i];
 
-                if(l2 == 'A') doc.setCharacterAttributes(i, 1, seq.getStyle("Red"), true);
-                if(l2 == 'T') doc.setCharacterAttributes(i, 1, seq.getStyle("Green"), true);
-                if(l2 == 'G') doc.setCharacterAttributes(i, 1, seq.getStyle("Yellow"), true);
-                if(l2 == 'C') doc.setCharacterAttributes(i, 1, seq.getStyle("Blue"), true);
+                    if(l2 == 'A') doc.setCharacterAttributes(i, 1, seq.getStyle("Red"), true);
+                    if(l2 == 'T') doc.setCharacterAttributes(i, 1, seq.getStyle("Green"), true);
+                    if(l2 == 'G') doc.setCharacterAttributes(i, 1, seq.getStyle("Yellow"), true);
+                    if(l2 == 'C') doc.setCharacterAttributes(i, 1, seq.getStyle("Blue"), true);
+                }
             }
-        }
 
-        pos++;
+            pos++;
         }
     }
-        static class Hist extends JComponent{
 
-            ArrayList<Integer> bars;
-            private final int width;
-            int height = 100;
+    static class Hist extends JComponent{
 
-            Hist(List<Double> values, int bins, int width) {
+        ArrayList<Integer> bars;
+        private final int width;
+        int height = 100;
+
+        Hist(List<Double> values, int bins, int width) {
             bars = new ArrayList<>(Collections.nCopies(bins, 0));
             this.width = width;
             double binsize = (Collections.max(values)+0.00000001 - Collections.min(values))/bins;

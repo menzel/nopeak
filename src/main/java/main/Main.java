@@ -93,7 +93,13 @@ public class Main {
     }
 
 
+    /**
+     * Getter for filter strength set by the user
+     *
+     * @return - filter strength
+     */
     public static int getFilter() {
         return filter;
     }
+
 }

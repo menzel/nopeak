@@ -15,6 +15,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 /**
+ * Scores a given list of profiles
  *
  */
 public class Scoring {
@@ -297,13 +298,13 @@ public class Scoring {
 
                 if (Main.getFilter() == 1)
                     if (score.getScore() < 0.9)
-                        writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+                        writer.write(score.getKmer() + "\t" + score.getHeight() + "\n");
                 if (Main.getFilter() == 2)
                     if (score.getScore() < 0.7)
-                        writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+                        writer.write(score.getKmer() + "\t" + score.getHeight() + "\n");
                 if (Main.getFilter() == 3)
                     if (score.getScore() < 0.4)
-                        writer.write(score.getQmer() + "\t" + score.getHeight() + "\n");
+                        writer.write(score.getKmer() + "\t" + score.getHeight() + "\n");
             }
 
         } catch (IOException e) {

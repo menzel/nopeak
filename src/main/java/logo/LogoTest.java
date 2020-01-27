@@ -20,7 +20,7 @@ public class LogoTest {
                                             "aagt",
                                             "annn");
 
-        new Logo(seq);
+        new LogoOld(seq);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class LogoTest {
 			e.printStackTrace();
 		}
 
-        Logo logo = new Logo(seq.get(0).getQmer(),seq);
+        LogoOld logo = new LogoOld(seq.get(0).getKmer(), seq);
         System.out.println(logo);
 
     }
@@ -69,6 +69,6 @@ public class LogoTest {
                                             new Score("actt", 0.5, 2.3),
                                             new Score("gatt", 0.5, 0.5));
 
-        Logo logo = new Logo("aatt",seq);
+        LogoOld logo = new LogoOld("aatt", seq);
     }
 }

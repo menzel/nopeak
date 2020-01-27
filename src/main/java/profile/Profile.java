@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * Calculation and container class for k-mer profiles
  *
  */
 public class Profile {
@@ -296,7 +297,6 @@ public class Profile {
 
                 List<Integer> prof = profile.get(qmer);
                 prof.set(i, prof.get(i) + 1);
-                //System.out.println(qmer + " insert +1 at " + i + " " + Arrays.toString(prof.toArray()));
             }
         }
 
@@ -325,7 +325,7 @@ public class Profile {
             e.printStackTrace();
         }
 
-        return chromosome.toString(); //String.join("", chromosome);
+        return chromosome.toString();
     }
 
 

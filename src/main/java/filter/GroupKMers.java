@@ -10,17 +10,21 @@ import java.util.stream.Collectors;
 public class GroupKMers {
 
     /**
-     *  @param scores
-     * @param basematch
-     * @param score_cutoff
-     * @param height_cutoff
+     * Groups a given k-mer to score list accoring to k-mer similarity.
+     *
+     * @param scores - list of k-mer to scores to group
+     * @param basematch - number of bases which still counts as the same group
+     * @param score_cutoff - min score still considered for grouping
+     * @param height_cutoff - min height still considered for grouping
+     *
+     * @return map of k-mer groups with the origin k-mers as keys and list of k-mers in this group as value
      */
     public static Map<String, List<String>> groupKMers(List<Score> scores, int basematch, double score_cutoff, int height_cutoff) {
 
         Map<String, List<String>> mers = new TreeMap<>();
 
         for(Score s: scores){ //iterate over each qmer/score combination
-            String qmer =  s.getQmer();
+            String qmer = s.getKmer();
             double score = s.getScore();
 
             if(score < 0) continue; // ignore negative scores
@@ -85,7 +89,7 @@ public class GroupKMers {
             System.err.println("No qmers left for clustering, you should adjust the filtering.");
             System.exit(1);
         }
-        int q = scores.get(0).getQmer().length(); // length of any qmer
+        int q = scores.get(0).getKmer().length(); // length of any qmer
         int expected_random_list_length = (int) Math.ceil(Math.pow(0.25, basematch) * (1 + 2 * (q - basematch)) * n);
 
         List<String> toRemove = mers.keySet().stream()
@@ -98,10 +102,12 @@ public class GroupKMers {
     }
 
     /**
+     * Scores a k-mer against another k-mer for all possible shifts, retuns the best one
      *
-     * @param qmer
-     * @param base
-     * @return
+     * @param qmer first k-mer
+     * @param base second k-mer
+     *
+     * @return shift and score for the top scoring shift between the k-mers
      */
     public static Tuple<Integer, Integer> getshift(String qmer, String base) {
         int l = qmer.length();
@@ -121,11 +127,13 @@ public class GroupKMers {
     }
 
     /**
+     * Scores a k-mer to another k-mer
      *
-     * @param qmer
-     * @param base
-     * @param shift
-     * @return
+     * @param qmer - k-mer to score
+     * @param base - k-mer to score against
+     * @param shift - offset of both k-mers
+     *
+     * @return score by matching base count
      */
     private static int score_qmer(String qmer, String base, int shift) {
 
