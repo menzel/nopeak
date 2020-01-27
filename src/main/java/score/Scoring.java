@@ -208,32 +208,32 @@ public class Scoring {
             return profile_sample_controlled;
         }
 
-        // border mean normalization
+        // border mean normalization (only if more than 100 values are present, which should always be.
 
         double mean_control_border;
         double mean_signal_border;
 
-        int skip_c = (profile_control.size() - profile_control.size() / 5) / 2;
-        int skip_s = (profile_sample.size() - profile_sample.size() / 5) / 2;
-        mean_control_border = profile_control.stream().skip(profile_control.size() - profile_control.size() / 5).sorted().skip(skip_c).findFirst().get();
-        mean_signal_border = profile_sample.stream().skip(profile_sample.size() - profile_sample.size() / 2).sorted().skip(skip_s).findFirst().get();
+        if (profile_control.size() > 100 && profile_sample.size() > 100) {
+            // get the mean of the last 100 values for control and signal
+            mean_control_border = profile_control.stream().skip(Math.max(0, profile_control.size() - 100)).sorted().skip(50).findFirst().get();
+            mean_signal_border = profile_sample.stream().skip(Math.max(0, profile_control.size() - 100)).sorted().skip(50).findFirst().get();
 
-        double factor_c, factor_s;
+            double factor_c, factor_s;
 
-        if (mean_control_border > mean_signal_border) {
-            factor_c = mean_signal_border / mean_control_border;
-            factor_s = 1;
-        } else {
-            factor_s = mean_control_border / mean_signal_border;
-            factor_c = 1;
+            if (mean_control_border > mean_signal_border) {
+                factor_c = mean_signal_border / mean_control_border;
+                factor_s = 1;
+            } else {
+                factor_s = mean_control_border / mean_signal_border;
+                factor_c = 1;
+            }
+
+            // border mean normalization
+            Tuple<List<Integer>, List<Integer>> normalized = ProfileLib.normalize(profile_sample, profile_control, factor_s, factor_c);
+
+            profile_control = normalized.getSecond();
+            profile_sample = normalized.getFirst();
         }
-
-
-        // border mean normalization
-        Tuple<List<Integer>, List<Integer>> normalized = ProfileLib.normalize(profile_sample, profile_control, factor_s, factor_c);
-
-        profile_control = normalized.getSecond();
-        profile_sample = normalized.getFirst();
 
         for (int i = 0; i < profile_sample.size(); i++) {
             profile_sample_controlled.set(i, ((double) profile_sample.get(i)) / profile_control.get(i));
