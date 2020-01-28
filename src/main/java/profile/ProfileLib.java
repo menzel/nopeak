@@ -1,3 +1,19 @@
+// Copyright (C) 2020 Michael Menzel
+// 
+// This file is part of NoPeak. <https://github.com/menzel/nopeak>.
+// 
+// NoPeak is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// NoPeak is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
 package profile;
 
 import java.util.*;
@@ -85,22 +101,22 @@ public class ProfileLib {
      */
     void merge_chr(Map<String, List<Integer>> profiles, Map<String, List<Integer>> new_profiles) {
 
-            for (String qmer : new_profiles.keySet()){
+        for (String qmer : new_profiles.keySet()){
 
-                if (profiles.containsKey(qmer)) {
+            if (profiles.containsKey(qmer)) {
 
-                    synchronized (updateLock) {
-                        List<Integer> profile2 = new_profiles.get(qmer);
-                        List<Integer> profile1 = profiles.get(qmer);
+                synchronized (updateLock) {
+                    List<Integer> profile2 = new_profiles.get(qmer);
+                    List<Integer> profile1 = profiles.get(qmer);
 
-                        for (int i = 0; i < profile1.size(); i++) {
-                            profile1.set(i, profile1.get(i) + profile2.get(i));
-                        }
+                    for (int i = 0; i < profile1.size(); i++) {
+                        profile1.set(i, profile1.get(i) + profile2.get(i));
                     }
-
-                } else {
-                    profiles.put(qmer, new_profiles.get(qmer));
                 }
+
+            } else {
+                profiles.put(qmer, new_profiles.get(qmer));
+            }
         }
     }
 

@@ -1,3 +1,19 @@
+// Copyright (C) 2020 Michael Menzel
+// 
+// This file is part of NoPeak. <https://github.com/menzel/nopeak>.
+// 
+// NoPeak is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// NoPeak is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
 package main;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
@@ -75,9 +91,9 @@ public class Main {
             Profile control = new Profile(path, input.getString("genome"), input.getInt("k"), radius, threadsc);
             control.writeProfilesToFile("profile_" + path.split("/")[path.split("/").length - 1] + ".csv");
 
-        ////////////////////
-        // Get logo from pre-build profile files
-        ////////////////////
+            ////////////////////
+            // Get logo from pre-build profile files
+            ////////////////////
 
         } else if ("LOGO".equals(input.getString("mode"))) {
 
