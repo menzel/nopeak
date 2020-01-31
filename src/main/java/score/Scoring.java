@@ -168,7 +168,7 @@ public class Scoring {
 
 
         //  check for correct fraglen position
-        if (pos < 0 || pos > sma.size()) { //TODO why > sma.size?
+        if (pos < 0 || pos > sma.size()) {
             System.err.println("Fraglen position outside of fragment. Is the fragment length of " + fraglen + " correct?");
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
@@ -185,6 +185,7 @@ public class Scoring {
             return Tuple.EMPTY_DOUBLE_TUPLE;
         }
 
+        //prefilter height by difference of min to mean vs max to mean
         double mean = sma.stream().sorted().skip(sma.size() / 2).findFirst().get();
         if (mean - min > (max - mean) / 2) {
             return Tuple.EMPTY_DOUBLE_TUPLE;
@@ -196,9 +197,7 @@ public class Scoring {
         }
 
         double delta  = sma.get(pos) - half_max;
-        //return new Tuple<>(smooth_fc(sma), max - min);
-        //double height =  max - min;
-        double border_mean = sma.subList(sma.size() - 101, sma.size()).stream().sorted().skip(50).findFirst().get();
+        double border_mean = sma.size() > 100 ? sma.subList(sma.size() - 101, sma.size()).stream().sorted().skip(50).findFirst().get() : 0;
         double height = max - border_mean;
         return new Tuple<>(Math.abs(delta / (max - half_max)), height);
     }

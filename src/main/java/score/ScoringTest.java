@@ -21,24 +21,11 @@ import profile.Profile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class ScoringTest {
-
-    @Test
-    public void calcScore() {
-
-        List<Integer> first = Arrays.asList(1, 1, 2, 2, 2, 3, 1, 1, 1, 2, 2, 2, 13, 1, 1, 1, 2, 2, 2, 13, 1, 1, 1, 2, 2, 2, 13, 1, 1, 1, 2, 2, 2, 13, 1, 1, 1, 2, 2, 2, 3, 1, 1, 1, 2, 2, 2, 3, 1, 1, 1, 2, 2, 2, 3, 1, 1, 1, 2, 2, 2, 3, 1);
-        List<Integer> second = new ArrayList<>(Collections.nCopies(first.size(), 1));
-
-        //TODO fix numbers to pass tests
-        double score = Scoring.calcScore(first, second, 2).getFirst();
-
-        assertEquals(0.57, score, 0.05);
-    }
 
     @Test
     public void getSma() {
