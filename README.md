@@ -63,5 +63,5 @@ Plots a given profile produced by NoPeak PROFILE. Which profile to plot is set b
 
 ### combine_profiles.py
 
-Combines two profile files as produced by NoPeak PROFILE by adding values for each qmer. Prints the resulting profile to stdout.
+Combines two profile files as produced by NoPeak PROFILE by adding values for each k-mer. Prints the resulting profile to stdout.
 Use with caution because the profiles are only normalized over read count and could have problems with profiles that have different fragment lengths.
