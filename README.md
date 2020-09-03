@@ -23,7 +23,7 @@ The NoPeak Software uses the integration profile of k-mers based on mapped reads
 
 ## Create profiles:
 
-java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa [-k 8]
+java -jar NoPeak.jar PROFILE --reads reads.bed --genome /hg19 [-k 8]
 
 * Where reads.bed is the file with the mapped reads that should be analyzed, e.g.:
 
@@ -32,7 +32,8 @@ java -jar NoPeak.jar PROFILE --reads reads.bed --genome hg19.fa [-k 8]
     > chr1	1379054	1379104	sample	1	-
     > ... 
 
-* hg19.fa is the human genome as .fasta-file
+* /hg19 is a directory with the (human) genome as .fasta-files (chr1.fa, chr2.fa, ... chrY.fa) 
+(You can get it here for example: hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/chromFa.tar.gz)
 
 * -k k-mer length: Can set the length of the k-mers to find. The default value is 8 bases.
 
