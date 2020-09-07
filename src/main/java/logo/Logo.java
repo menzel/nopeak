@@ -18,10 +18,7 @@ package logo;
 
 import score.Score;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Logo {
@@ -141,4 +138,54 @@ public class Logo {
 
         return tmp;
     }
+
+
+    public String getJaspar() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(">\n");
+
+
+        int skip = 0; // count to skip columns with all zero
+        int trunc = 0; // count to skip columns with all zero
+
+        for (int[] pos : pwm) {
+            if (Arrays.stream(pos).limit(3).sum() == 0) {
+                skip += 1;
+            } else break;
+        }
+
+        for (int i = pwm.length - 1; i > 0; i--) {
+            int[] pos = pwm[i];
+
+            if (Arrays.stream(pos).limit(3).sum() == 0) {
+                trunc += 1;
+            } else break;
+        }
+
+        for (Character base : new Character[]{'a', 'c', 'g', 't'}) {
+
+            StringBuilder row = new StringBuilder();
+            row.append(base.toString().toUpperCase());
+            row.append(" [");
+
+            for (int i1 = skip; i1 < pwm.length - trunc; i1++) {
+                int[] pos = pwm[i1];
+                String val = String.valueOf(pos[mapping.get(base)]);
+
+                int i = 2;
+                while (i - val.length() > 0) {
+                    row.append(" ");
+                    i--;
+                }
+
+                row.append(val);
+            }
+
+            row.append(" ]\n");
+            builder.append(row.toString());
+        }
+
+        return builder.toString();
+    }
+
 }

@@ -20,7 +20,10 @@ import filter.GroupKMers;
 import logo.Logo;
 import score.Score;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Guesses the best values for score cutoff and height cutoff to seperate noise and signal value for k-mer profiles
@@ -52,15 +55,23 @@ class Guesser {
             groupedKmers = GroupKMers.groupKMers(scores, basematch, score_cutoff, height_cutoff);
         }
 
-        List<String> keys = new ArrayList<>(groupedKmers.keySet());
 
         Map<String, List<String>> finalGroupedKmers = groupedKmers;
-        keys.sort(Comparator.comparingInt(o -> finalGroupedKmers.get(o).size()));
-        Collections.reverse(keys);
+        groupedKmers.keySet().forEach(base -> {
+            System.out.print("Motif:\t");
+            System.out.println(profile.ProfileLib.reverse_complement(base).toUpperCase());
 
-        Logo top = new Logo(groupedKmers.get(keys.get(0)));
-        top.reverse_complement();
-        System.out.println(top);
+            Logo logo = new Logo(finalGroupedKmers.get(base));
+
+            logo.reverse_complement();
+            System.out.println("\nLogo as Python array for the plot_pwm.py script:");
+            System.out.println(Arrays.deepToString(logo.getPwm()).replace(" ", ""));
+
+            System.out.println("\nLogo in JASPAR format:");
+            System.out.println(logo.getJaspar());
+
+            System.out.println("----");
+        });
     }
 
     /**
