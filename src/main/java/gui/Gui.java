@@ -42,18 +42,18 @@ import java.util.stream.Collectors;
  */
 public class Gui extends Frame {
 
-    private int sliderwidth;
+    private final int sliderwidth;
     private int height_cutoff = 20;
     private String filter = "^";
-    private List<Score> scores;
+    private final List<Score> scores;
     private int basematch = 3;
     private double score_cutoff = 0.2;
-    private JTextPane seq;
-    private StyledDocument doc;
+    private final JTextPane seq;
+    private final StyledDocument doc;
     private boolean colorall = true;
     private Map<String, List<String>> groupedKmers;
     private String hash;
-    private List<String> createdfiles = new ArrayList<>();
+    private final List<String> createdfiles = new ArrayList<>();
 
     public int getBasematch() {
         return basematch;
@@ -109,6 +109,10 @@ public class Gui extends Frame {
 
         final JPanel images = new JPanel();
         f.getContentPane().add(BorderLayout.EAST, images);
+
+
+        JLabel info = new JLabel("Adjust the sliders for basematch, score and height cutoff to see the effects on the sequence logo:");
+        f.getContentPane().add(BorderLayout.WEST, info);
 
         final JPanel buttons = new JPanel();
         buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
@@ -262,7 +266,7 @@ public class Gui extends Frame {
         buttons.add(new Box.Filler(new Dimension(5,5),new Dimension(10,10),new Dimension(1000,1000)));
 
 
-        JButton continue_btn = new JButton("continue");
+        JButton continue_btn = new JButton("Print");
         buttons.add(continue_btn);
 
         continue_btn.addActionListener(e -> {
@@ -274,15 +278,15 @@ public class Gui extends Frame {
             for (String s : groupedKmers.keySet()) {
                 Logo logo = new Logo(groupedKmers.get(s));
 
-                if(!reverse_complement.isSelected())
+                if (!reverse_complement.isSelected())
                     logo.reverse_complement();
 
-                try {
-                    Process process = Runtime.getRuntime().exec("python /home/menzel/Desktop/THM/promotion/projekte/nopeak/plot_pwm.py " + Arrays.deepToString(logo.getPwm()).replace(" ", "") + " " + s);
-                    process.waitFor();
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
+                //try {
+                //    Process process = Runtime.getRuntime().exec("python3 plot_pwm.py " + Arrays.deepToString(logo.getPwm()).replace(" ", "") + " " + s);
+                //    process.waitFor();
+                //} catch (InterruptedException | IOException e1) {
+                //    e1.printStackTrace();
+                //}
             }
 
             //pwm.setText(pwmtext.toString());
