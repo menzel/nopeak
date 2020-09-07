@@ -162,6 +162,9 @@ public class Logo {
             } else break;
         }
 
+        //max length of position value for nice printing
+        int max_lenght = (Arrays.stream(pwm).flatMapToInt(x -> Arrays.stream(x)).max().getAsInt() + "").length();
+
         for (Character base : new Character[]{'a', 'c', 'g', 't'}) {
 
             StringBuilder row = new StringBuilder();
@@ -170,13 +173,14 @@ public class Logo {
 
             for (int i1 = skip; i1 < pwm.length - trunc; i1++) {
                 int[] pos = pwm[i1];
-                String val = String.valueOf(pos[mapping.get(base)]);
+                String val = pos[mapping.get(base)] + "";
 
-                int i = 2;
+                int i = max_lenght;
                 while (i - val.length() > 0) {
                     row.append(" ");
                     i--;
                 }
+                row.append(" ");
 
                 row.append(val);
             }

@@ -57,9 +57,14 @@ class Guesser {
 
 
         Map<String, List<String>> finalGroupedKmers = groupedKmers;
+
+        System.out.println("Significant motifs:");
+
         groupedKmers.keySet().forEach(base -> {
             System.out.print("Motif:\t");
             System.out.println(profile.ProfileLib.reverse_complement(base).toUpperCase());
+            System.out.print("K-mers count:\t");
+            System.out.println(finalGroupedKmers.get(base).size());
 
             Logo logo = new Logo(finalGroupedKmers.get(base));
 
