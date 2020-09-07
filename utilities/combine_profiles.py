@@ -16,16 +16,16 @@ comb_profile = {}
 for f in sys.argv:
     with open(f) as fp:
         for line in fp: 
-            if not line.startswith("#") and not line.startswith("qmer"):
+            if not line.startswith("#") and not line.startswith("kmer"):
                 parts = line.split("\t")
 
                 values = [float(x)/readc for x in parts[1:]]
-                qmer = parts[0]
+                kmer = parts[0]
 
-                if qmer in comb_profile:
-                    comb_profile[qmer] = [values[i] + comb_profile[qmer][i] for i in range(len(values))]
+                if kmer in comb_profile:
+                    comb_profile[kmer] = [values[i] + comb_profile[kmer][i] for i in range(len(values))]
                 else: 
-                    comb_profile[qmer] = values
+                    comb_profile[kmer] = values
 
             else: 
                 if line.startswith("# reads used:"):

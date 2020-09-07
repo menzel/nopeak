@@ -40,11 +40,11 @@ fig, ax = plt.subplots()
 
 with open(sys.argv[1]) as fp:
     for line in fp:
-        if not line.startswith("#") and not line.startswith("qmer") and re.search(match, line[:12]):
+        if not line.startswith("#") and not line.startswith("kmer") and re.search(match, line[:12]):
             parts = line.split("\t")
 
             values = [int(x) for x in parts[1:]]
-            qmer = parts[0]
+            kmer = parts[0]
 
             sma = get_sma(values,smooth)[smooth:]
             smamin = numpy.min(sma)
@@ -58,7 +58,7 @@ with open(sys.argv[1]) as fp:
 
             #plt.plot(yvals, sma, linewidth=3, color=linecol[int(mx*1000) % 800]) 
             ax.plot(yvals, sma, linewidth=2, color=linecol[int(mx*1000) % 800]) 
-            ax.text(-440,mx,qmer, color=linecol[int(mx*1000) % 800],fontsize=20)  
+            ax.text(-440,mx,kmer, color=linecol[int(mx*1000) % 800],fontsize=20)
             #plt.plot([-280, -70], [mx, mx], color=linecol[int(mx*1000) % 800], linestyle='--',alpha=.4) # dotted line between kmer and top
 
     plt.show() 
