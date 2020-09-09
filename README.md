@@ -61,8 +61,13 @@ java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 1
 
 Plots a given profile produced by NoPeak PROFILE. Which profile to plot is set by a regex (e.g. AA(G|C)T+). 
 
+### plot_n_highest_profiles.py
+
+Plots the n highest profiles by relative height without any 
 
 ### combine_profiles.py
 
 Combines two profile files as produced by NoPeak PROFILE by adding values for each k-mer. Prints the resulting profile to stdout.
 Use with caution because the profiles are only normalized over read count and could have problems with profiles that have different fragment lengths.
+
+
