@@ -18,7 +18,7 @@ The NoPeak Software uses the integration profile of k-mers based on mapped reads
 
 * Create a .bed-file: 
     * samtools view -bS cebpb.sam > cebpb.bam
-    * bamToBed -i cebpb.bam | sort -k1,1 -k2n tmp.bed > cebpb.bed 
+    * bamToBed -i cebpb.bam | sort -k1,1 -k2n > cebpb.bed 
 
 
 ## Create profiles:
