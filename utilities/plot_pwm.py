@@ -4,9 +4,9 @@ import numpy as np
 import sys
 from weblogo import * 
 
-
 ### USAGE:
-# ./plot_pwm.py 
+# ./plot_pwm.py PWM_AS_LIST [OUTFILE]
+# ./plot_pwm.py [[1,9,1,1],[9,2,1,1],[1,1,1,12]] logo
 
 def createlogo(counts, outfile):
     counts = counts[::-1]
