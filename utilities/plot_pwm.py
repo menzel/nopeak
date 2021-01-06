@@ -2,15 +2,17 @@
 
 import numpy as np
 import sys
-from weblogolib import * 
-from corebio.seq import Seq, SeqList, Alphabet, unambiguous_dna_alphabet
-import math
+from weblogo import * 
+
+
+### USAGE:
+# ./plot_pwm.py 
 
 def createlogo(counts, outfile):
     counts = counts[::-1]
 
     counts = np.array(counts)
-    logo = LogoData.from_counts(unambiguous_dna_alphabet, counts)
+    logo = LogoData.from_counts(seq.Alphabet("ACGT"), counts)
     options = LogoOptions()
     options.fineprint = ""
 
