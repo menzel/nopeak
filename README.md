@@ -70,4 +70,5 @@ Plots the n highest profiles by relative height without any
 Combines two profile files as produced by NoPeak PROFILE by adding values for each k-mer. Prints the resulting profile to stdout.
 Use with caution because the profiles are only normalized over read count and could have problems with profiles that have different fragment lengths.
 
-
+### plot_pwm.py
+Plots a PWM as sequence logo (using Weblogo https://weblogo.berkeley.edu/logo.cgi) from a given list output by NoPeak.

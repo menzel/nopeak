@@ -13,6 +13,7 @@ def createlogo(counts, outfile):
     logo = LogoData.from_counts(unambiguous_dna_alphabet, counts)
     options = LogoOptions()
     options.fineprint = ""
+
     if len(counts) > 23:
         options.logo_start = 9
         options.logo_end = 19
@@ -25,11 +26,9 @@ def createlogo(counts, outfile):
 
 profile = eval(sys.argv[1])
 
-if len(sys.argv) == 3:
-    outfile = "/tmp/nopeak_logo_" + sys.argv[2]  + ".pdf"
-else:
-    outfile = "/tmp/nopeak_logo.pdf"
+outfile = "logo.pdf"
+if len(sys.argv) >= 3:
+    outfile = sys.argv[2]  + ".pdf"
 
 createlogo(profile, outfile)
-
-print("written pdf to " + outfile) 
+print("pdf saved as " + outfile) 
