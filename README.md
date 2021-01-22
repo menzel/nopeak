@@ -41,7 +41,7 @@ java -jar NoPeak.jar PROFILE --reads reads.bed --genome /hg19 [-k 8]
 ## Export k-mers and create sequence logos  
 
 * Example:
-java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 100 [--export-kmers file]
+java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 100 --strict [--export-kmers file]
 
 * reads.csv and control.csv contain the profiles that were created using NoPeak in a previous PROFILE run:
 
@@ -52,6 +52,8 @@ java -jar NoPeak.jar LOGO --signal reads.csv [--control control.csv] --fraglen 1
 * Controls are optional but recommended.
 
 * fragment length: Estimated fragment length. You can use the included estimate_fraglen.jar tool or any other estimation tool.  
+
+* It is recommended to use the --strict parameter to get only high scoring k-mers. If you deciede to do otherwise, review the shapes of k-mer profiles using the .csv from before and the plot_profile.py script (described below) with the top k-mers to verify that the shapes are well.
 
 * --export-kers export k-mers with scores in an intermediate step. Scores are the profile heights. Absolute height if there are no controls, with controls the scores are relative values.
 
