@@ -13,7 +13,7 @@
 // GNU General Public License for more details.
 // 
 // You should have received a copy of the GNU General Public License
-// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.
 package profile;
 
 
@@ -89,7 +89,7 @@ public class Profile {
 
         Runnable status = () -> {
             while(service.getActiveCount() > 0) {
-                System.out.println(service.getCompletedTaskCount() + " of 24 chromosomes are finished.");
+                System.out.println(service.getCompletedTaskCount() + " of " + service.getTaskCount() + " tasks are finished.");
                 try {
                     Thread.sleep(1000 * 60);
                 } catch (InterruptedException e) {
@@ -101,12 +101,10 @@ public class Profile {
         Map<String, List<Integer>> profiles_p = Collections.synchronizedMap(new TreeMap<>());
         Map<String, List<Integer>> profiles_n = Collections.synchronizedMap(new TreeMap<>());
 
-        for (int i : new int[]{10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 20, 21, 22, 2, 3, 4, 5, 6, 7, 8, 9, 23, 24}) {
+        Set<String> chrKeys = new HashSet<>(readstarts_n.keySet());
+        chrKeys.addAll(readstarts_p.keySet());
 
-            String chr;
-            if (i == 23) chr = "chrX";
-            else if (i == 24) chr = "chrY";
-            else chr = "chr" + i;
+        for (String chr: chrKeys) {
 
             service.execute(new chr_wrapper(chr, readstarts_p, readstarts_n, profiles_p, profiles_n));
         }
@@ -338,7 +336,7 @@ public class Profile {
                 if(!line.startsWith(">chr")) chromosome.append(line.trim());
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Chromsome file " + chr + ".fa is missing in " + path  +  " and will be ignored.");
         }
 
         return chromosome.toString();
