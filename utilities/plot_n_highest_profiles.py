@@ -28,10 +28,7 @@ def get_sma(values, n):
     sma.append(numpy.mean(curr))
     return sma
 
-#fig, ax = plt.subplots(dpi=1200,figsize=(14.69,9.27))
 fig, ax = plt.subplots()
-
-
 
 count = int(sys.argv[2])
 smooth = int(sys.argv[3])
@@ -39,20 +36,20 @@ linecol = [cm.hot(float(x)/1000) for x in range(0, 1000)]
 
 profiles = {}
 heights = {}
+num_lines = str(sum(1 for line in open(sys.argv[1])))
 
 with open(sys.argv[1]) as fp:
     for i,line in enumerate(fp):
+
         if i % 1000 == 0:
-            print(str(i) + "/32902")
+            print(str(i) + "/" + num_lines)
 
         if not line.startswith("#") and not line.startswith("qmer"):
             parts = line.split("\t")
 
-            values = [int(x) for x in parts[1:]]
             qmer = parts[0]
-
+            values = [int(x) for x in parts[1:]]
             sma = get_sma(values,smooth)[smooth:]
-            smamin = numpy.min(sma)
 
             mx = numpy.max(sma)
             mn = numpy.mean(sma)
@@ -62,10 +59,7 @@ with open(sys.argv[1]) as fp:
             heights[qmer] = (mx - mn)/(mn - mi)
 
 
-
 highest = list({k:v for k,v in sorted(heights.items(), key=lambda item: item[1])}.keys())[-count:]
-[print(h + " " + str(heights[h])) for h in highest]
-
 
 for qmer in highest:
     sma = profiles[qmer]

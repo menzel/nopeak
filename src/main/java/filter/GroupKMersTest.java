@@ -13,9 +13,10 @@
 // GNU General Public License for more details.
 // 
 // You should have received a copy of the GNU General Public License
-// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
-package filter;
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.
+package java.filter;
 
+import filter.GroupKMers;
 import org.junit.Test;
 import score.Score;
 

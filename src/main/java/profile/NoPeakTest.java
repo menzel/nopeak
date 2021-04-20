@@ -22,7 +22,7 @@ import java.util.*;
 
 public class NoPeakTest {
 
-    @Test
+    @org.testng.annotations.AfterTest
     public void testWrapper() throws Exception {
 
         String seq = "tgtaccacattttctctatccagtcatctgttgatggacatttaggtttc";

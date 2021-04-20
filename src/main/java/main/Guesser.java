@@ -13,11 +13,10 @@
 // GNU General Public License for more details.
 // 
 // You should have received a copy of the GNU General Public License
-// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.
 package main;
 
 import filter.GroupKMers;
-import logo.Logo;
 import score.Score;
 
 import java.util.Arrays;
@@ -66,14 +65,14 @@ class Guesser {
             System.out.print("K-mers count:\t");
             System.out.println(finalGroupedKmers.get(base).size());
 
-            Logo logo = new Logo(finalGroupedKmers.get(base));
+            java.logo.Logo l1 = new java.logo.Logo(finalGroupedKmers.get(base));
 
-            logo.reverse_complement();
+            l1.reverse_complement();
             System.out.println("\nLogo as Python array for the plot_pwm.py script:");
-            System.out.println(Arrays.deepToString(logo.getPwm()).replace(" ", ""));
+            System.out.println(Arrays.deepToString(l1.getPwm()).replace(" ", ""));
 
             System.out.println("\nLogo in JASPAR format:");
-            System.out.println(logo.getJaspar());
+            System.out.println(l1.getJaspar());
 
             System.out.println("----");
         });

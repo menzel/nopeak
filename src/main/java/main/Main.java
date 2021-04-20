@@ -13,7 +13,7 @@
 // GNU General Public License for more details.
 // 
 // You should have received a copy of the GNU General Public License
-// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.
 package main;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
@@ -81,7 +81,7 @@ public class Main {
         if ("PROFILE".equals(input.getString("mode"))) {
 
             int threadsc = input.getInt("threads");
-            threadsc = threadsc > 24 ? 24 : threadsc; //limit max thread count to 24
+            threadsc = Math.min(threadsc, 24); //limit max thread count to 24
             Integer radius = input.getInt("radius");
 
             System.out.println("[" + (System.currentTimeMillis() - startTime) + "] Building profiles for " + input.getInt("k") + "-mers for a radius of " + radius +  " bp around each read");

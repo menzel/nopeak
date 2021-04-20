@@ -13,7 +13,7 @@
 // GNU General Public License for more details.
 // 
 // You should have received a copy of the GNU General Public License
-// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
+// along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.
 package logo;
 
 import org.junit.Test;
@@ -36,7 +36,7 @@ public class LogoTest {
                 "aagt",
                 "annn");
 
-        new Logo(seq);
+        new java.logo.Logo(seq);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class LogoTest {
                 "aagt",
                 "annn");
 
-        Logo l = new Logo(seq);
+        java.logo.Logo l = new java.logo.Logo(seq);
         l.reverse_complement();
 
     }
@@ -73,7 +73,7 @@ public class LogoTest {
             e.printStackTrace();
         }
 
-        Logo logo = new Logo(seq.get(0).getKmer(), seq);
+        java.logo.Logo logo = new java.logo.Logo(seq.get(0).getKmer(), seq);
     }
 
 
@@ -83,6 +83,6 @@ public class LogoTest {
                 new Score("actt", 0.5, 2.3),
                 new Score("gatt", 0.5, 0.5));
 
-        Logo logo = new Logo("aatt", seq);
+        java.logo.Logo logo = new java.logo.Logo("aatt", seq);
     }
 }

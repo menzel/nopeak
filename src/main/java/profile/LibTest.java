@@ -16,6 +16,7 @@
 // along with NoPeak.  If not, see <https://www.gnu.org/licenses/>.  
 package profile;
 
+
 import org.junit.Before;
 
 import java.util.Arrays;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LibTest {
     private ProfileLib lib;
