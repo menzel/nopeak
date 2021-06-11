@@ -17,6 +17,7 @@
 package main;
 
 import filter.GroupKMers;
+import logo.Logo;
 import score.Score;
 
 import java.util.Arrays;
@@ -65,7 +66,7 @@ class Guesser {
             System.out.print("K-mers count:\t");
             System.out.println(finalGroupedKmers.get(base).size());
 
-            java.logo.Logo l1 = new java.logo.Logo(finalGroupedKmers.get(base));
+            Logo l1 = new Logo(finalGroupedKmers.get(base));
 
             l1.reverse_complement();
             System.out.println("\nLogo as Python array for the plot_pwm.py script:");

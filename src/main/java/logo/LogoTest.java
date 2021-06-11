@@ -36,7 +36,7 @@ public class LogoTest {
                 "aagt",
                 "annn");
 
-        new java.logo.Logo(seq);
+        new Logo(seq);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class LogoTest {
                 "aagt",
                 "annn");
 
-        java.logo.Logo l = new java.logo.Logo(seq);
+        Logo l = new Logo(seq);
         l.reverse_complement();
 
     }
@@ -73,7 +73,7 @@ public class LogoTest {
             e.printStackTrace();
         }
 
-        java.logo.Logo logo = new java.logo.Logo(seq.get(0).getKmer(), seq);
+        Logo logo = new Logo(seq.get(0).getKmer(), seq);
     }
 
 
@@ -83,6 +83,6 @@ public class LogoTest {
                 new Score("actt", 0.5, 2.3),
                 new Score("gatt", 0.5, 0.5));
 
-        java.logo.Logo logo = new java.logo.Logo("aatt", seq);
+        Logo logo = new Logo("aatt", seq);
     }
 }
