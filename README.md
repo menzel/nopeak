@@ -74,3 +74,8 @@ Use with caution because the profiles are only normalized over read count and co
 
 ### plot_pwm.py
 Plots a PWM as sequence logo (using Weblogo https://weblogo.berkeley.edu/logo.cgi) from a given list output by NoPeak.
+
+
+# Rust version
+There is a much faster version written in Rust: https://github.com/menzel/nopeak_rust
+However, until now only the core algorithm is implemented and thus it lacks several features.
